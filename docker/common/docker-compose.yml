@@ -1,0 +1,27 @@
+version: '1'
+services:
+  eurekaserver:
+     image: tim/vvs-eurekasvr:v1
+     ports:
+         - "8761:8761"
+  configserver:
+      image: tim/vvs-confsvr:v1
+      ports:
+         - "8888:8888"
+      environment:
+         EUREKASERVER_URI: "http://eurekaserver:8761/eureka/"
+         EUREKASERVER_PORT: "8761"
+         ENCRYPT_KEY:       "IMSYMMETRIC"
+  provinceservice:
+      image: tim/vvs-province-service:v1
+      ports:
+        - "8081:8081"
+      environment:
+        PROFILE: "default"
+        SERVER_PORT: "8081"
+        CONFIGSERVER_URI: "http://configserver:8888"
+        EUREKASERVER_URI: "http://eurekaserver:8761/eureka/"
+        CONFIGSERVER_PORT:   "8888"
+        DATABASESERVER_PORT: "5432"
+        EUREKASERVER_PORT:   "8761"
+        ENCRYPT_KEY:       "IMSYMMETRIC"
