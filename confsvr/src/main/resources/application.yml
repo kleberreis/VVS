@@ -23,7 +23,7 @@ spring:
           uri: https://github.com/kleberreis/config-repo-vvs/
           searchPaths: provinceservice
           username: kleberreis
-          password: kandrade82
+          password: 
 
 
 ####
