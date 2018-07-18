@@ -19,6 +19,7 @@
     <module>confsvr</module>
     <module>province-service</module>
     <module>eurekasvr</module>
+      <module>commons</module>
   </modules>
   <build>
     <plugins>
