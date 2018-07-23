@@ -18,8 +18,9 @@
   <modules>
     <module>confsvr</module>
     <module>province-service</module>
+    <module>user-service</module>
     <module>eurekasvr</module>
-      <module>commons</module>
+    <module>commons</module>
   </modules>
   <build>
     <plugins>

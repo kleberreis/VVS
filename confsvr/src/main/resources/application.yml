@@ -20,11 +20,13 @@ spring:
       server:
         encrypt.enabled: false
         git:
-          uri: https://github.com/kleberreis/config-repo-vvs/
-          searchPaths: provinceservice
-          username: kleberreis
-          password: 
-
+          uri: "https://github.com/kleberreis/config-repo-vvs/"
+          searchPaths: "provinceservice, userservice"
+          ###
+          #Colocar o usario e senha padrao do VVS com acesso git
+          #username: "{cipher}"
+          #password: "{cipher}"
+          ###
 
 ####
 #Classpath and file-based solution
