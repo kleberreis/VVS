@@ -45,7 +45,7 @@ public class CityController extends BaseControllerImpl<City, Integer> implements
     }
 
     @Override
-    @GetMapping("/city{id}")
+    @GetMapping("/city/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public City findById(@PathVariable("id") Integer id) {
         return super.findById(id);
@@ -83,7 +83,7 @@ public class CityController extends BaseControllerImpl<City, Integer> implements
     }
 
     @Override
-    @DeleteMapping("/city{id}")
+    @DeleteMapping("/city/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response deleteById(@PathVariable("id") Integer id) {
         return super.deleteById(id);

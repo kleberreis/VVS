@@ -29,13 +29,13 @@ public class UserPasswordHistoryController extends BaseControllerImpl<UserPasswo
     }
 
     @Override
-    @GetMapping("/passwordHistory{id}")
+    @GetMapping("/passwordHistory/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public UserPasswordHistory findById(@PathVariable("id") Integer id) {
         return super.findById(id);
     }
 
-    @GetMapping("/passwordHistoryUser{id}")
+    @GetMapping("/passwordHistory/user/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Iterable<UserPasswordHistory> findAllByUserId(@PathVariable("id") Integer id) {
         Iterable<UserPasswordHistory> list = new ArrayList<>();

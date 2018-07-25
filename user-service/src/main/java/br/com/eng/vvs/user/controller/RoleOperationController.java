@@ -45,7 +45,7 @@ public class RoleOperationController extends BaseControllerImpl<RoleOperation, I
     }
 
     @Override
-    @GetMapping("/roleOperation{id}")
+    @GetMapping("/roleOperation/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public RoleOperation findById(@PathVariable("id") Integer id) {
         return super.findById(id);
@@ -83,7 +83,7 @@ public class RoleOperationController extends BaseControllerImpl<RoleOperation, I
     }
 
     @Override
-    @DeleteMapping("/roleOperation{id}")
+    @DeleteMapping("/roleOperation/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response deleteById(@PathVariable("id") Integer id) {
         return super.deleteById(id);

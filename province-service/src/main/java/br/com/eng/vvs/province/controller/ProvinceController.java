@@ -45,7 +45,7 @@ public class ProvinceController extends BaseControllerImpl<Province, Integer> im
     }
 
     @Override
-    @GetMapping("/province{id}")
+    @GetMapping("/province/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Province findById(@PathVariable("id") Integer id) {
         return super.findById(id);
@@ -83,7 +83,7 @@ public class ProvinceController extends BaseControllerImpl<Province, Integer> im
     }
 
     @Override
-    @DeleteMapping("/province{id}")
+    @DeleteMapping("/province/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response deleteById(@PathVariable("id") Integer id) {
         return super.deleteById(id);

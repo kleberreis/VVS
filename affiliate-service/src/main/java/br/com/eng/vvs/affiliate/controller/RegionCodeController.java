@@ -1,9 +1,9 @@
-package br.com.eng.vvs.user.controller;
+package br.com.eng.vvs.affiliate.controller;
 
+import br.com.eng.vvs.affiliate.model.RegionCode;
+import br.com.eng.vvs.affiliate.service.RegionCodeService;
 import br.com.eng.vvs.commons.interfaces.BaseController;
 import br.com.eng.vvs.commons.interfaces.impl.BaseControllerImpl;
-import br.com.eng.vvs.user.model.Role;
-import br.com.eng.vvs.user.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,76 +14,76 @@ import javax.ws.rs.core.Response;
 import java.util.Set;
 
 @RestController
-public class RoleController extends BaseControllerImpl<Role, Integer> implements BaseController<Role> {
+public class RegionCodeController extends BaseControllerImpl<RegionCode, Integer> implements BaseController<RegionCode> {
 
     @Autowired
-    public RoleController(RoleService roleService) {
-        super(roleService);
+    public RegionCodeController(RegionCodeService service) {
+        super(service);
     }
 
     @Override
-    @PostMapping("/role")
+    @PostMapping("/regionCode")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response insert(@RequestBody Role model) {
+    public Response insert(@RequestBody RegionCode model) {
         return super.insert(model);
     }
 
     @Override
-    @PostMapping("/roleAll")
+    @PostMapping("/regionCodeAll")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response insertAll(@RequestBody Set<Role> modelSet) {
+    public Response insertAll(@RequestBody Set<RegionCode> modelSet) {
         return super.insertAll(modelSet);
     }
 
     @Override
-    @GetMapping("/role")
+    @GetMapping("/regionCode")
     @Produces(MediaType.APPLICATION_JSON)
-    public Iterable<Role> findAll() {
+    public Iterable<RegionCode> findAll() {
         return super.findAll();
     }
 
     @Override
-    @GetMapping("/role/{id}")
+    @GetMapping("/regionCode/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Role findById(@PathVariable("id") Integer id) {
+    public RegionCode findById(@PathVariable("id") Integer id) {
         return super.findById(id);
     }
 
     @Override
-    @PutMapping("/role")
+    @PutMapping("/regionCode")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response update(@RequestBody Role model) {
+    public Response update(@RequestBody RegionCode model) {
         return super.update(model);
     }
 
     @Override
-    @PutMapping("/roleAll")
+    @PutMapping("/regionCodeAll")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response updateAll(@RequestBody Set<Role> repositorySet) {
+    public Response updateAll(@RequestBody Set<RegionCode> repositorySet) {
         return super.updateAll(repositorySet);
     }
 
-    @DeleteMapping("/role")
+    @DeleteMapping("/regionCode")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response delete(@RequestBody Role model) {
+    public Response delete(@RequestBody RegionCode model) {
         return super.delete(model);
     }
 
     @Override
-    @DeleteMapping("/roleAll")
+    @DeleteMapping("/regionCodeAll")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response deleteAll(@RequestBody Set<Role> modelSet) {
+    public Response deleteAll(@RequestBody Set<RegionCode> modelSet) {
         return super.deleteAll(modelSet);
     }
 
     @Override
-    @DeleteMapping("/role/{id}")
+    @DeleteMapping("/regionCode/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response deleteById(@PathVariable("id") Integer id) {
         return super.deleteById(id);

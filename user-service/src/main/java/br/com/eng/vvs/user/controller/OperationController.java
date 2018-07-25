@@ -45,7 +45,7 @@ public class OperationController extends BaseControllerImpl<Operation, Integer> 
     }
 
     @Override
-    @GetMapping("/operation{id}")
+    @GetMapping("/operation/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Operation findById(@PathVariable("id") Integer id) {
         return super.findById(id);
@@ -83,7 +83,7 @@ public class OperationController extends BaseControllerImpl<Operation, Integer> 
     }
 
     @Override
-    @DeleteMapping("/operation{id}")
+    @DeleteMapping("/operation/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response deleteById(@PathVariable("id") Integer id) {
         return super.deleteById(id);

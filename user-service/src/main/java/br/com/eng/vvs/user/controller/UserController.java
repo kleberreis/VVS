@@ -63,7 +63,7 @@ public class UserController extends BaseControllerImpl<User, Integer> implements
     }
 
     @Override
-    @GetMapping("/user{id}")
+    @GetMapping("/user/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public User findById(@PathVariable("id") Integer id) {
         return super.findById(id);
@@ -115,15 +115,15 @@ public class UserController extends BaseControllerImpl<User, Integer> implements
     }
 
     @Override
-    @DeleteMapping("/user{id}")
+    @DeleteMapping("/user/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response deleteById(@PathVariable("id") Integer id) {
         return super.deleteById(id);
     }
 
-    @GetMapping("/city")
+    @GetMapping("/user/city/{cityId}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Iterable<User> findAllByCityId(@RequestParam("cityId") Integer cityId) {
+    public Iterable<User> findAllByCityId(@PathVariable("cityId") Integer cityId) {
         Iterable<User> all = userService.getAllByCityId(cityId);
         for (User user : all) {
             JsonControler.populateUserCity(user);
