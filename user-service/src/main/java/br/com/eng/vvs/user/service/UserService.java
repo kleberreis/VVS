@@ -6,4 +6,5 @@ import org.springframework.stereotype.Service;
 
 @Service
 public interface UserService extends CrudRepository<User, Integer> {
+    Iterable<User> getAllByCityId(Integer cityId);
 }

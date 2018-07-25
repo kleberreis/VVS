@@ -9,13 +9,14 @@ import org.springframework.core.GenericTypeResolver;
 import org.springframework.data.repository.CrudRepository;
 
 import javax.ws.rs.core.Response;
+import java.io.Serializable;
 import java.util.Set;
 
 /**
  * Criado por Raphael em 18/07/18.
  */
 @SuppressWarnings("unchecked")
-public class BaseControllerImpl<MODEL extends BaseModel, ID> implements BaseController<MODEL> {
+public class BaseControllerImpl<MODEL extends BaseModel, ID extends Serializable> implements BaseController<MODEL> {
 
     private CrudRepository<MODEL, ID> repository;
 
@@ -53,7 +54,7 @@ public class BaseControllerImpl<MODEL extends BaseModel, ID> implements BaseCont
             return Response.status(Response.Status.NO_CONTENT).build();
 
         try {
-            repository.saveAll(modelSet);
+            repository.save(modelSet);
         } catch (Exception e) {
             log.error(String.format("%sService - Insert All Error - %d", modelClass.getSimpleName(), modelSet.size()), e);
             return Response.serverError().build();
@@ -74,7 +75,7 @@ public class BaseControllerImpl<MODEL extends BaseModel, ID> implements BaseCont
             return null;
 
         try {
-            return repository.findById((ID) id).orElse(null);
+            return repository.findOne((ID) id);
         } catch (Exception e) {
             log.error(String.format("%sService - Find by Id Error - %d", modelClass.getSimpleName(), id), e);
             throw e;
@@ -104,7 +105,7 @@ public class BaseControllerImpl<MODEL extends BaseModel, ID> implements BaseCont
             return Response.status(Response.Status.NO_CONTENT).build();
 
         try {
-            repository.saveAll(repositorySet);
+            repository.save(repositorySet);
         } catch (Exception e) {
             log.error(String.format("%sService - Update All Error - %d", modelClass.getSimpleName(), repositorySet.size()), e);
             return Response.serverError().build();
@@ -137,7 +138,7 @@ public class BaseControllerImpl<MODEL extends BaseModel, ID> implements BaseCont
             return Response.ok("Delete successful").build();
 
         try {
-            repository.deleteAll(modelSet);
+            repository.delete(modelSet);
         } catch (Exception e) {
             log.error(String.format("%sService - Delete All Error - %d", modelClass.getSimpleName(), modelSet.size()), e);
             return Response.serverError().build();
@@ -154,7 +155,7 @@ public class BaseControllerImpl<MODEL extends BaseModel, ID> implements BaseCont
             return Response.ok("Delete successful").build();
 
         try {
-            repository.deleteById((ID) id);
+            repository.delete((ID) id);
         } catch (Exception e) {
             log.error(String.format("%sService - Delete by Id Error - %d", modelClass.getSimpleName(), id), e);
             return Response.serverError().build();

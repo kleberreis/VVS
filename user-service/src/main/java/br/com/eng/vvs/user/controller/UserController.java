@@ -4,7 +4,7 @@ import br.com.eng.vvs.commons.interfaces.BaseController;
 import br.com.eng.vvs.commons.interfaces.impl.BaseControllerImpl;
 import br.com.eng.vvs.user.model.User;
 import br.com.eng.vvs.user.model.UserPasswordHistory;
-import br.com.eng.vvs.user.service.UserHistoryService;
+import br.com.eng.vvs.user.service.UserPasswordHistoryService;
 import br.com.eng.vvs.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -22,11 +22,11 @@ import java.util.Set;
 public class UserController extends BaseControllerImpl<User, Integer> implements BaseController<User> {
 
     private UserService userService;
-    private UserHistoryService historyService;
+    private UserPasswordHistoryService historyService;
     private PasswordEncoder passwordEncoder;
 
     @Autowired
-    public UserController(UserService userService, UserHistoryService historyService, PasswordEncoder passwordEncoder) {
+    public UserController(UserService userService, UserPasswordHistoryService historyService, PasswordEncoder passwordEncoder) {
         super(userService);
         this.userService = userService;
         this.historyService = historyService;
@@ -55,7 +55,11 @@ public class UserController extends BaseControllerImpl<User, Integer> implements
     @GetMapping("/user")
     @Produces(MediaType.APPLICATION_JSON)
     public Iterable<User> findAll() {
-        return super.findAll();
+        Iterable<User> all = super.findAll();
+        for (User user : all) {
+            JsonControler.populateUserCity(user);
+        }
+        return all;
     }
 
     @Override
@@ -70,7 +74,13 @@ public class UserController extends BaseControllerImpl<User, Integer> implements
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response update(@RequestBody User model) {
-        Optional.of(model.getPasswordRaw()).ifPresent(s -> model.setLastPasswordDate(LocalDate.now()));
+        Optional.of(model.getPasswordRaw())
+                .ifPresent(s -> {
+                    model.setLastPasswordDate(LocalDate.now());
+                    model.setPassword(passwordEncoder.encode(model.getPasswordRaw()));
+                    UserPasswordHistory history = new UserPasswordHistory(model);
+                    historyService.save(history);
+                });
         return super.update(model);
     }
 
@@ -82,6 +92,7 @@ public class UserController extends BaseControllerImpl<User, Integer> implements
         repositorySet.forEach(user -> Optional.of(user.getPasswordRaw())
                 .ifPresent(s -> {
                     user.setLastPasswordDate(LocalDate.now());
+                    user.setPassword(passwordEncoder.encode(user.getPasswordRaw()));
                     UserPasswordHistory history = new UserPasswordHistory(user);
                     historyService.save(history);
                 }));
@@ -108,6 +119,16 @@ public class UserController extends BaseControllerImpl<User, Integer> implements
     @Produces(MediaType.APPLICATION_JSON)
     public Response deleteById(@PathVariable("id") Integer id) {
         return super.deleteById(id);
+    }
+
+    @GetMapping("/city")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Iterable<User> findAllByCityId(@RequestParam("cityId") Integer cityId) {
+        Iterable<User> all = userService.getAllByCityId(cityId);
+        for (User user : all) {
+            JsonControler.populateUserCity(user);
+        }
+        return all;
     }
 
     @PostMapping("/login")

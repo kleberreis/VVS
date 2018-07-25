@@ -8,16 +8,18 @@ import javax.persistence.*;
  * Criado por Raphael em 18/07/18.
  */
 @Entity
-public class Role implements BaseModel {
+public class Operation implements BaseModel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "ROLE_SEQ")
-    @SequenceGenerator(sequenceName = "seq_role", name = "ROLE_SEQ", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "OPE_SEQ")
+    @SequenceGenerator(sequenceName = "seq_operation", name = "OPE_SEQ", allocationSize = 1)
     private Integer id;
+
+    private String operation;
 
     private String description;
 
-    public Role() {
+    public Operation() {
     }
 
     @Override
@@ -27,6 +29,14 @@ public class Role implements BaseModel {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getOperation() {
+        return operation;
+    }
+
+    public void setOperation(String operation) {
+        this.operation = operation;
     }
 
     public String getDescription() {

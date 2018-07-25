@@ -1,6 +1,9 @@
 package br.com.eng.vvs.user.model;
 
 import br.com.eng.vvs.commons.interfaces.BaseModel;
+import br.com.eng.vvs.commons.utils.JsonLocalDateSerializer;
+import br.com.eng.vvs.commons.utils.LocalDateConverter;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -20,48 +23,51 @@ public class User implements BaseModel {
 
     private String name;
 
-    private String address;
-
     private String email;
 
     private String phone;
 
-    @Transient
+    private String address;
+
+    private String zipCode;
+
+    private Integer cityId;
+
+    @JsonSerialize(using = JsonLocalDateSerializer.class)
+    @Convert(converter = LocalDateConverter.class)
     private LocalDate lastLoginDate;
 
-    @Transient
-    private LocalDate lastLoginDateCache;
+    @JsonSerialize(using = JsonLocalDateSerializer.class)
+    @Convert(converter = LocalDateConverter.class)
+    private LocalDate lastPasswordDate;
+
+    @JsonSerialize(using = JsonLocalDateSerializer.class)
+    @Convert(converter = LocalDateConverter.class)
+    private LocalDate creationDate;
+
+    @JsonSerialize(using = JsonLocalDateSerializer.class)
+    @Convert(converter = LocalDateConverter.class)
+    private LocalDate expirationDate;
 
     @ManyToOne
     private Role role;
 
-    private String area;
-
-    private Boolean changePassword;
-
-    @Transient
-    private LocalDate lastPasswordDate;
-
-    private String blockReason;
-
-    private String blockDescription;
-
-    @Transient
-    private LocalDate creationDate;
-
-    @Transient
-    private LocalDate expirationDate;
-
     @Transient
     private String passwordRaw;
 
-    private String remoteLogin;
+    @Transient
+    private String cityName;
 
-    private Boolean blockedInactivity;
+    @Transient
+    private String provinceName;
 
-    private Boolean passwordExpired;
+    @Transient
+    @JsonSerialize(using = JsonLocalDateSerializer.class)
+    private LocalDate lastLoginDateCache;
 
-    private Boolean externalAuthentication;
+    public User() {
+        this.creationDate = LocalDate.now();
+    }
 
     @Override
     public Integer getId() {
@@ -96,14 +102,6 @@ public class User implements BaseModel {
         this.name = name;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -118,6 +116,54 @@ public class User implements BaseModel {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getZipCode() {
+        return zipCode;
+    }
+
+    public void setZipCode(String zipCode) {
+        this.zipCode = zipCode;
+    }
+
+    public Integer getCityId() {
+        return cityId;
+    }
+
+    public void setCityId(Integer cityId) {
+        this.cityId = cityId;
+    }
+
+    public String getCityName() {
+        return cityName;
+    }
+
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
+    }
+
+    public String getProvinceName() {
+        return provinceName;
+    }
+
+    public void setProvinceName(String provinceName) {
+        this.provinceName = provinceName;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 
     public LocalDate getLastLoginDate() {
@@ -136,52 +182,12 @@ public class User implements BaseModel {
         this.lastLoginDateCache = lastLoginDateCache;
     }
 
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
-    }
-
-    public String getArea() {
-        return area;
-    }
-
-    public void setArea(String area) {
-        this.area = area;
-    }
-
-    public Boolean getChangePassword() {
-        return changePassword;
-    }
-
-    public void setChangePassword(Boolean changePassword) {
-        this.changePassword = changePassword;
-    }
-
     public LocalDate getLastPasswordDate() {
         return lastPasswordDate;
     }
 
     public void setLastPasswordDate(LocalDate lastPasswordDate) {
         this.lastPasswordDate = lastPasswordDate;
-    }
-
-    public String getBlockReason() {
-        return blockReason;
-    }
-
-    public void setBlockReason(String blockReason) {
-        this.blockReason = blockReason;
-    }
-
-    public String getBlockDescription() {
-        return blockDescription;
-    }
-
-    public void setBlockDescription(String blockDescription) {
-        this.blockDescription = blockDescription;
     }
 
     public LocalDate getCreationDate() {
@@ -208,35 +214,27 @@ public class User implements BaseModel {
         this.passwordRaw = passwordRaw;
     }
 
-    public String getRemoteLogin() {
-        return remoteLogin;
-    }
-
-    public void setRemoteLogin(String remoteLogin) {
-        this.remoteLogin = remoteLogin;
-    }
-
-    public Boolean getBlockedInactivity() {
-        return blockedInactivity;
-    }
-
-    public void setBlockedInactivity(Boolean blockedInactivity) {
-        this.blockedInactivity = blockedInactivity;
-    }
-
-    public Boolean getPasswordExpired() {
-        return passwordExpired;
-    }
-
-    public void setPasswordExpired(Boolean passwordExpired) {
-        this.passwordExpired = passwordExpired;
-    }
-
-    public Boolean getExternalAuthentication() {
-        return externalAuthentication;
-    }
-
-    public void setExternalAuthentication(Boolean externalAuthentication) {
-        this.externalAuthentication = externalAuthentication;
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", address='" + address + '\'' +
+                ", zipCode='" + zipCode + '\'' +
+                ", cityId=" + cityId +
+                ", cityName='" + cityName + '\'' +
+                ", provinceName='" + provinceName + '\'' +
+                ", role=" + role +
+                ", lastLoginDate=" + lastLoginDate +
+                ", lastLoginDateCache=" + lastLoginDateCache +
+                ", lastPasswordDate=" + lastPasswordDate +
+                ", creationDate=" + creationDate +
+                ", expirationDate=" + expirationDate +
+                ", passwordRaw='" + passwordRaw + '\'' +
+                '}';
     }
 }

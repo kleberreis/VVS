@@ -1,6 +1,9 @@
 package br.com.eng.vvs.user.model;
 
 import br.com.eng.vvs.commons.interfaces.BaseModel;
+import br.com.eng.vvs.commons.utils.JsonLocalDateSerializer;
+import br.com.eng.vvs.commons.utils.LocalDateConverter;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -22,7 +25,8 @@ public class UserPasswordHistory implements BaseModel {
 
     private String password;
 
-    @Column
+    @JsonSerialize(using = JsonLocalDateSerializer.class)
+    @Convert(converter = LocalDateConverter.class)
     private LocalDate insertDate;
 
     public UserPasswordHistory() {
@@ -43,7 +47,7 @@ public class UserPasswordHistory implements BaseModel {
         this.id = id;
     }
 
-   /* public User getUser() {
+    public User getUser() {
         return user;
     }
 
@@ -65,5 +69,5 @@ public class UserPasswordHistory implements BaseModel {
 
     public void setInsertDate(LocalDate insertDate) {
         this.insertDate = insertDate;
-    }*/
+    }
 }
