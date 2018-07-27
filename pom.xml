@@ -20,6 +20,12 @@
     <module>province-service</module>
     <module>affiliate-service</module>
     <module>user-service</module>
+    <module>dealer-service</module>
+    <module>sub-dealer-service</module>
+    <module>recharge-point-service</module>
+    <module>operator-service</module>
+    <module>point-sale-service</module>
+    <module>point-sale-operator-service</module>
     <module>eurekasvr</module>
     <module>commons</module>
   </modules>

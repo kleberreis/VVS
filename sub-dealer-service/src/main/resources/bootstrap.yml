@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: subdealerservice
+  profiles:
+    active:
+      default
+  cloud:
+    config:
+      enabled: true

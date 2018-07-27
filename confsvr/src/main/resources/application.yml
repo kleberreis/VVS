@@ -21,7 +21,7 @@ spring:
         encrypt.enabled: false
         git:
           uri: "https://github.com/kleberreis/config-repo-vvs/"
-          searchPaths: "provinceservice, userservice, affiliateservice"
+          searchPaths: "provinceservice, userservice, affiliateservice, dealerservice, subdealerservice, rechargepointservice, operatorservice, pointsaleservice, pointsaleoperatorservice"
           ###
           #Colocar o usario e senha padrao do VVS com acesso git
           #username: "{cipher}"

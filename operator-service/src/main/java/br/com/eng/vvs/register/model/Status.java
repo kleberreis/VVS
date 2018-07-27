@@ -1,26 +1,21 @@
-package br.com.eng.vvs.user.model;
-
-import br.com.eng.vvs.commons.interfaces.BaseModel;
+package br.com.eng.vvs.register.model;
 
 import javax.persistence.*;
 
 /**
- * Criado por Raphael em 18/07/18.
+ * Criado por Raphael em 25/07/18.
  */
 @Entity
-public class Role implements BaseModel {
-
+public class Status {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "ROLE_SEQ")
-    @SequenceGenerator(sequenceName = "seq_role", name = "ROLE_SEQ", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "STATUS_SEQ")
+    @SequenceGenerator(sequenceName = "seq_status", name = "STATUS_SEQ", allocationSize = 1)
     private Integer id;
 
     private String description;
 
-    public Role() {
-    }
+    private String reason;
 
-    @Override
     public Integer getId() {
         return id;
     }
@@ -37,11 +32,20 @@ public class Role implements BaseModel {
         this.description = description;
     }
 
+    public String getReason() {
+        return reason;
+    }
+
+    public void setReason(String reason) {
+        this.reason = reason;
+    }
+
     @Override
     public String toString() {
-        return "Role{" +
+        return "Status{" +
                 "id=" + id +
                 ", description='" + description + '\'' +
+                ", reason='" + reason + '\'' +
                 '}';
     }
 }

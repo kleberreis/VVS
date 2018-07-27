@@ -46,4 +46,13 @@ public class Operation implements BaseModel {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    @Override
+    public String toString() {
+        return "Operation{" +
+                "id=" + id +
+                ", operation='" + operation + '\'' +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }
