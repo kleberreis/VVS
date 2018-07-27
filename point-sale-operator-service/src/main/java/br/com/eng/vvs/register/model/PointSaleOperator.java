@@ -1,9 +1,13 @@
 package br.com.eng.vvs.register.model;
 
 import br.com.eng.vvs.commons.interfaces.BaseModel;
+import br.com.eng.vvs.commons.utils.JsonLocalDateSerializer;
+import br.com.eng.vvs.commons.utils.LocalDateConverter;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.sun.org.glassfish.gmbal.ManagedAttribute;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "POINT_OF_SALE_OPERATOR")
@@ -20,6 +24,10 @@ public class PointSaleOperator implements BaseModel {
 
     @ManyToOne
     private Status status;
+
+    @JsonSerialize(using = JsonLocalDateSerializer.class)
+    @Convert(converter = LocalDateConverter.class)
+    private LocalDate creationDate;
 
     public Integer getId() {
         return id;
@@ -53,6 +61,14 @@ public class PointSaleOperator implements BaseModel {
         this.status = status;
     }
 
+    public LocalDate getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(LocalDate creationDate) {
+        this.creationDate = creationDate;
+    }
+
     @Override
     public String toString() {
         return "PointSaleOperator{" +
@@ -60,6 +76,7 @@ public class PointSaleOperator implements BaseModel {
                 ", pointSaleId=" + pointSaleId +
                 ", operatorId=" + operatorId +
                 ", status=" + status +
+                ", creationDate=" + creationDate +
                 '}';
     }
 }

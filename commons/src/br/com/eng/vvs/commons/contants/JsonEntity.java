@@ -46,7 +46,7 @@ public class JsonEntity {
         public static String ID = "id";
         public static String MSISDN = "msisdn";
         public static String IMEI = "imei";
-        public static String CRAETE_DATE = "createDate";
+        public static String CRAETION_DATE = "creationDate";
         public static String AMOUNT = "amount";
     }
 

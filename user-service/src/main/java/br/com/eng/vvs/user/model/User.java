@@ -47,6 +47,10 @@ public class User implements BaseModel {
 
     @JsonSerialize(using = JsonLocalDateSerializer.class)
     @Convert(converter = LocalDateConverter.class)
+    private LocalDate modDate;
+
+    @JsonSerialize(using = JsonLocalDateSerializer.class)
+    @Convert(converter = LocalDateConverter.class)
     private LocalDate expirationDate;
 
     @ManyToOne
@@ -196,6 +200,14 @@ public class User implements BaseModel {
 
     public void setCreationDate(LocalDate creationDate) {
         this.creationDate = creationDate;
+    }
+
+    public LocalDate getModDate() {
+        return modDate;
+    }
+
+    public void setModDate(LocalDate modDate) {
+        this.modDate = modDate;
     }
 
     public LocalDate getExpirationDate() {

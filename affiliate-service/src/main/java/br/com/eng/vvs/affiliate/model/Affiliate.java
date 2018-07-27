@@ -18,6 +18,9 @@ public class Affiliate implements BaseModel {
 
     private Integer provinceId;
 
+    @ManyToOne
+    private TelcoOperator telcoOperator;
+
     public Integer getId() {
         return id;
     }
@@ -50,6 +53,14 @@ public class Affiliate implements BaseModel {
         this.provinceId = provinceId;
     }
 
+    public TelcoOperator getTelcoOperator() {
+        return telcoOperator;
+    }
+
+    public void setTelcoOperator(TelcoOperator telcoOperator) {
+        this.telcoOperator = telcoOperator;
+    }
+
     @Override
     public String toString() {
         return "Affiliate{" +
@@ -57,6 +68,7 @@ public class Affiliate implements BaseModel {
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", provinceId=" + provinceId +
+                ", telcoOperator=" + telcoOperator +
                 '}';
     }
 }

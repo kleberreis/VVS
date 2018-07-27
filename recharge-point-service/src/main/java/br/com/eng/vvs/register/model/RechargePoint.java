@@ -30,6 +30,10 @@ public class RechargePoint implements BaseModel {
     @Convert(converter = LocalDateConverter.class)
     private LocalDate creationDate;
 
+    @JsonSerialize(using = JsonLocalDateSerializer.class)
+    @Convert(converter = LocalDateConverter.class)
+    private LocalDate modDate;
+
     private Integer dealerId;
 
     @ManyToOne
@@ -95,6 +99,14 @@ public class RechargePoint implements BaseModel {
         this.creationDate = creationDate;
     }
 
+    public LocalDate getModDate() {
+        return modDate;
+    }
+
+    public void setModDate(LocalDate modDate) {
+        this.modDate = modDate;
+    }
+
     public Integer getDealerId() {
         return dealerId;
     }
@@ -137,6 +149,7 @@ public class RechargePoint implements BaseModel {
                 ", email='" + email + '\'' +
                 ", phone='" + phone + '\'' +
                 ", creationDate=" + creationDate +
+                ", modDate=" + modDate +
                 ", dealerId=" + dealerId +
                 ", status=" + status +
                 ", cityId=" + cityId +

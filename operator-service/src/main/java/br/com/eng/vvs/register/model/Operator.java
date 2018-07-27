@@ -1,8 +1,12 @@
 package br.com.eng.vvs.register.model;
 
 import br.com.eng.vvs.commons.interfaces.BaseModel;
+import br.com.eng.vvs.commons.utils.JsonLocalDateSerializer;
+import br.com.eng.vvs.commons.utils.LocalDateConverter;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 public class Operator implements BaseModel {
@@ -20,6 +24,14 @@ public class Operator implements BaseModel {
     private Status status;
 
     private Integer pointSaleId;
+
+    @JsonSerialize(using = JsonLocalDateSerializer.class)
+    @Convert(converter = LocalDateConverter.class)
+    private LocalDate creationDate;
+
+    @JsonSerialize(using = JsonLocalDateSerializer.class)
+    @Convert(converter = LocalDateConverter.class)
+    private LocalDate modDate;
 
     public Integer getId() {
         return id;
@@ -61,6 +73,22 @@ public class Operator implements BaseModel {
         this.pointSaleId = pointSaleId;
     }
 
+    public LocalDate getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(LocalDate creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public LocalDate getModDate() {
+        return modDate;
+    }
+
+    public void setModDate(LocalDate modDate) {
+        this.modDate = modDate;
+    }
+
     @Override
     public String toString() {
         return "Operator{" +
@@ -69,6 +97,8 @@ public class Operator implements BaseModel {
                 ", userId=" + userId +
                 ", status=" + status +
                 ", pointSaleId=" + pointSaleId +
+                ", creationDate=" + creationDate +
+                ", modDate=" + modDate +
                 '}';
     }
 }

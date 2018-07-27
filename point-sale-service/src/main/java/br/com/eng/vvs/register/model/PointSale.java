@@ -23,7 +23,11 @@ public class PointSale implements BaseModel {
 
     @JsonSerialize(using = JsonLocalDateSerializer.class)
     @Convert(converter = LocalDateConverter.class)
-    private LocalDate createDate;
+    private LocalDate creationDate;
+
+    @JsonSerialize(using = JsonLocalDateSerializer.class)
+    @Convert(converter = LocalDateConverter.class)
+    private LocalDate modDate;
 
     private Float amount;
 
@@ -51,12 +55,20 @@ public class PointSale implements BaseModel {
         this.imei = imei;
     }
 
-    public LocalDate getCreateDate() {
-        return createDate;
+    public LocalDate getCreationDate() {
+        return creationDate;
     }
 
-    public void setCreateDate(LocalDate createDate) {
-        this.createDate = createDate;
+    public void setCreationDate(LocalDate creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public LocalDate getModDate() {
+        return modDate;
+    }
+
+    public void setModDate(LocalDate modDate) {
+        this.modDate = modDate;
     }
 
     public Float getAmount() {
@@ -73,7 +85,8 @@ public class PointSale implements BaseModel {
                 "id=" + id +
                 ", msisdn='" + msisdn + '\'' +
                 ", imei='" + imei + '\'' +
-                ", createDate=" + createDate +
+                ", creationDate=" + creationDate +
+                ", modDate=" + modDate +
                 ", amount=" + amount +
                 '}';
     }
