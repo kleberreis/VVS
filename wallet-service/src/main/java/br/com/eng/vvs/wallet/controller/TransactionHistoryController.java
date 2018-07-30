@@ -1,9 +1,9 @@
-package br.com.eng.vvs.province.controller;
+package br.com.eng.vvs.wallet.controller;
 
 import br.com.eng.vvs.commons.interfaces.BaseController;
 import br.com.eng.vvs.commons.interfaces.impl.BaseControllerImpl;
-import br.com.eng.vvs.wallet.model.Province;
-import br.com.eng.vvs.wallet.service.ProvinceService;
+import br.com.eng.vvs.wallet.model.TransactionHistory;
+import br.com.eng.vvs.wallet.service.TransactionHistoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,76 +14,76 @@ import javax.ws.rs.core.Response;
 import java.util.Set;
 
 @RestController
-public class ProvinceController extends BaseControllerImpl<Province, Integer> implements BaseController<Province> {
+public class TransactionHistoryController extends BaseControllerImpl<TransactionHistory, Integer> implements BaseController<TransactionHistory> {
 
     @Autowired
-    public ProvinceController(ProvinceService service) {
+    public TransactionHistoryController(TransactionHistoryService service) {
         super(service);
     }
 
     @Override
-    @PostMapping("/province")
+    @PostMapping("/transactionHistory")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response insert(@RequestBody Province model) {
+    public Response insert(@RequestBody TransactionHistory model) {
         return super.insert(model);
     }
 
     @Override
-    @PostMapping("/provinceAll")
+    @PostMapping("/transactionHistoryAll")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response insertAll(@RequestBody Set<Province> modelSet) {
+    public Response insertAll(@RequestBody Set<TransactionHistory> modelSet) {
         return super.insertAll(modelSet);
     }
 
     @Override
-    @GetMapping("/province")
+    @GetMapping("/transactionHistory")
     @Produces(MediaType.APPLICATION_JSON)
-    public Iterable<Province> findAll() {
+    public Iterable<TransactionHistory> findAll() {
         return super.findAll();
     }
 
     @Override
-    @GetMapping("/province/{id}")
+    @GetMapping("/transactionHistory/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Province findById(@PathVariable("id") Integer id) {
+    public TransactionHistory findById(@PathVariable("id") Integer id) {
         return super.findById(id);
     }
 
     @Override
-    @PutMapping("/province")
+    @PutMapping("/transactionHistory")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response update(@RequestBody Province model) {
+    public Response update(@RequestBody TransactionHistory model) {
         return super.update(model);
     }
 
     @Override
-    @PutMapping("/provinceAll")
+    @PutMapping("/transactionHistoryAll")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response updateAll(@RequestBody Set<Province> repositorySet) {
+    public Response updateAll(@RequestBody Set<TransactionHistory> repositorySet) {
         return super.updateAll(repositorySet);
     }
 
-    @DeleteMapping("/province")
+    @DeleteMapping("/transactionHistory")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response delete(@RequestBody Province model) {
+    public Response delete(@RequestBody TransactionHistory model) {
         return super.delete(model);
     }
 
     @Override
-    @DeleteMapping("/provinceAll")
+    @DeleteMapping("/transactionHistoryAll")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response deleteAll(@RequestBody Set<Province> modelSet) {
+    public Response deleteAll(@RequestBody Set<TransactionHistory> modelSet) {
         return super.deleteAll(modelSet);
     }
 
     @Override
-    @DeleteMapping("/province/{id}")
+    @DeleteMapping("/transactionHistory/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response deleteById(@PathVariable("id") Integer id) {
         return super.deleteById(id);

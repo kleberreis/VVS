@@ -1,4 +1,4 @@
-package br.com.eng.vvs.province;
+package br.com.eng.vvs.payment;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,6 +9,6 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 public class ProvinceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(br.com.eng.vvs.wallet.ProvinceApplication.class, args);
+		SpringApplication.run(ProvinceApplication.class, args);
 	}
 }

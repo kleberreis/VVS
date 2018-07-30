@@ -26,6 +26,8 @@
     <module>operator-service</module>
     <module>point-sale-service</module>
     <module>point-sale-operator-service</module>
+    <module>wallet-service</module>
+    <module>payment-service</module>
     <module>eurekasvr</module>
     <module>commons</module>
   </modules>

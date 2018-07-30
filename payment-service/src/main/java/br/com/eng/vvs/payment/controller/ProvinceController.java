@@ -1,9 +1,9 @@
-package br.com.eng.vvs.province.controller;
+package br.com.eng.vvs.payment.controller;
 
 import br.com.eng.vvs.commons.interfaces.BaseController;
 import br.com.eng.vvs.commons.interfaces.impl.BaseControllerImpl;
-import br.com.eng.vvs.wallet.model.Province;
-import br.com.eng.vvs.wallet.service.ProvinceService;
+import br.com.eng.vvs.payment.model.Province;
+import br.com.eng.vvs.payment.service.ProvinceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

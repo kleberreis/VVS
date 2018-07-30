@@ -1,9 +1,9 @@
-package br.com.eng.vvs.province.controller;
+package br.com.eng.vvs.wallet.controller;
 
 import br.com.eng.vvs.commons.interfaces.BaseController;
 import br.com.eng.vvs.commons.interfaces.impl.BaseControllerImpl;
-import br.com.eng.vvs.wallet.model.Province;
-import br.com.eng.vvs.wallet.service.ProvinceService;
+import br.com.eng.vvs.wallet.model.Transaction;
+import br.com.eng.vvs.wallet.service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,76 +14,76 @@ import javax.ws.rs.core.Response;
 import java.util.Set;
 
 @RestController
-public class ProvinceController extends BaseControllerImpl<Province, Integer> implements BaseController<Province> {
+public class TransactionController extends BaseControllerImpl<Transaction, Integer> implements BaseController<Transaction> {
 
     @Autowired
-    public ProvinceController(ProvinceService service) {
+    public TransactionController(TransactionService service) {
         super(service);
     }
 
     @Override
-    @PostMapping("/province")
+    @PostMapping("/transaction")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response insert(@RequestBody Province model) {
+    public Response insert(@RequestBody Transaction model) {
         return super.insert(model);
     }
 
     @Override
-    @PostMapping("/provinceAll")
+    @PostMapping("/transactionAll")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response insertAll(@RequestBody Set<Province> modelSet) {
+    public Response insertAll(@RequestBody Set<Transaction> modelSet) {
         return super.insertAll(modelSet);
     }
 
     @Override
-    @GetMapping("/province")
+    @GetMapping("/transaction")
     @Produces(MediaType.APPLICATION_JSON)
-    public Iterable<Province> findAll() {
+    public Iterable<Transaction> findAll() {
         return super.findAll();
     }
 
     @Override
-    @GetMapping("/province/{id}")
+    @GetMapping("/transaction/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Province findById(@PathVariable("id") Integer id) {
+    public Transaction findById(@PathVariable("id") Integer id) {
         return super.findById(id);
     }
 
     @Override
-    @PutMapping("/province")
+    @PutMapping("/transaction")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response update(@RequestBody Province model) {
+    public Response update(@RequestBody Transaction model) {
         return super.update(model);
     }
 
     @Override
-    @PutMapping("/provinceAll")
+    @PutMapping("/transactionAll")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response updateAll(@RequestBody Set<Province> repositorySet) {
+    public Response updateAll(@RequestBody Set<Transaction> repositorySet) {
         return super.updateAll(repositorySet);
     }
 
-    @DeleteMapping("/province")
+    @DeleteMapping("/transaction")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response delete(@RequestBody Province model) {
+    public Response delete(@RequestBody Transaction model) {
         return super.delete(model);
     }
 
     @Override
-    @DeleteMapping("/provinceAll")
+    @DeleteMapping("/transactionAll")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response deleteAll(@RequestBody Set<Province> modelSet) {
+    public Response deleteAll(@RequestBody Set<Transaction> modelSet) {
         return super.deleteAll(modelSet);
     }
 
     @Override
-    @DeleteMapping("/province/{id}")
+    @DeleteMapping("/transaction/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response deleteById(@PathVariable("id") Integer id) {
         return super.deleteById(id);

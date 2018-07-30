@@ -1,6 +1,6 @@
-package br.com.eng.vvs.province.service;
+package br.com.eng.vvs.payment.service;
 
-import br.com.eng.vvs.wallet.model.Province;
+import br.com.eng.vvs.payment.model.Province;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 

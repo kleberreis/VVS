@@ -1,9 +1,10 @@
-package br.com.eng.vvs.province.controller;
+package br.com.eng.vvs.wallet.controller;
 
 import br.com.eng.vvs.commons.interfaces.BaseController;
 import br.com.eng.vvs.commons.interfaces.impl.BaseControllerImpl;
-import br.com.eng.vvs.wallet.model.Province;
-import br.com.eng.vvs.wallet.service.ProvinceService;
+import br.com.eng.vvs.wallet.model.Transfer;
+import br.com.eng.vvs.wallet.model.Wallet;
+import br.com.eng.vvs.wallet.service.WalletService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,78 +15,85 @@ import javax.ws.rs.core.Response;
 import java.util.Set;
 
 @RestController
-public class ProvinceController extends BaseControllerImpl<Province, Integer> implements BaseController<Province> {
+public class WalletController extends BaseControllerImpl<Wallet, Integer> implements BaseController<Wallet> {
 
     @Autowired
-    public ProvinceController(ProvinceService service) {
+    public WalletController(WalletService service) {
         super(service);
     }
 
     @Override
-    @PostMapping("/province")
+    @PostMapping("/wallet")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response insert(@RequestBody Province model) {
+    public Response insert(@RequestBody Wallet model) {
         return super.insert(model);
     }
 
     @Override
-    @PostMapping("/provinceAll")
+    @PostMapping("/walletAll")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response insertAll(@RequestBody Set<Province> modelSet) {
+    public Response insertAll(@RequestBody Set<Wallet> modelSet) {
         return super.insertAll(modelSet);
     }
 
     @Override
-    @GetMapping("/province")
+    @GetMapping("/wallet")
     @Produces(MediaType.APPLICATION_JSON)
-    public Iterable<Province> findAll() {
+    public Iterable<Wallet> findAll() {
         return super.findAll();
     }
 
     @Override
-    @GetMapping("/province/{id}")
+    @GetMapping("/wallet/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Province findById(@PathVariable("id") Integer id) {
+    public Wallet findById(@PathVariable("id") Integer id) {
         return super.findById(id);
     }
 
     @Override
-    @PutMapping("/province")
+    @PutMapping("/wallet")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response update(@RequestBody Province model) {
+    public Response update(@RequestBody Wallet model) {
         return super.update(model);
     }
 
     @Override
-    @PutMapping("/provinceAll")
+    @PutMapping("/walletAll")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response updateAll(@RequestBody Set<Province> repositorySet) {
+    public Response updateAll(@RequestBody Set<Wallet> repositorySet) {
         return super.updateAll(repositorySet);
     }
 
-    @DeleteMapping("/province")
+    @DeleteMapping("/wallet")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response delete(@RequestBody Province model) {
+    public Response delete(@RequestBody Wallet model) {
         return super.delete(model);
     }
 
     @Override
-    @DeleteMapping("/provinceAll")
+    @DeleteMapping("/walletAll")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response deleteAll(@RequestBody Set<Province> modelSet) {
+    public Response deleteAll(@RequestBody Set<Wallet> modelSet) {
         return super.deleteAll(modelSet);
     }
 
     @Override
-    @DeleteMapping("/province/{id}")
+    @DeleteMapping("/wallet/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response deleteById(@PathVariable("id") Integer id) {
         return super.deleteById(id);
+    }
+
+    @PostMapping("/transfer")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response transfer(@RequestBody Transfer model) {
+        return Response.ok().build();
     }
 }
