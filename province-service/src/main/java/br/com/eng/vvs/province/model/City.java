@@ -1,7 +1,6 @@
 package br.com.eng.vvs.province.model;
 
 import br.com.eng.vvs.commons.interfaces.BaseModel;
-import br.com.eng.vvs.wallet.model.Province;
 
 import javax.persistence.*;
 
@@ -16,7 +15,7 @@ public class City implements BaseModel {
     private String name;
 
     @ManyToOne
-    private br.com.eng.vvs.wallet.model.Province province;
+    private Province province;
 
     public Integer getId() {
         return id;
@@ -34,7 +33,7 @@ public class City implements BaseModel {
         this.name = name;
     }
 
-    public br.com.eng.vvs.wallet.model.Province getProvince() {
+    public Province getProvince() {
         return province;
     }
 
