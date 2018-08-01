@@ -1,13 +1,21 @@
 package br.com.eng.vvs.register.model;
 
+import java.time.LocalDate;
+
+import javax.persistence.Convert;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 import br.com.eng.vvs.commons.interfaces.BaseModel;
 import br.com.eng.vvs.commons.utils.JsonLocalDateSerializer;
 import br.com.eng.vvs.commons.utils.LocalDateConverter;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.sun.org.glassfish.gmbal.ManagedAttribute;
-
-import javax.persistence.*;
-import java.time.LocalDate;
 
 @Entity
 @Table(name = "POINT_OF_SALE_OPERATOR")

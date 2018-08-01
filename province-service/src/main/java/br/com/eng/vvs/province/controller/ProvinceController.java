@@ -1,6 +1,13 @@
 package br.com.eng.vvs.province.controller;
 
-<<<<<<< HEAD
+
+import java.util.Set;
+
+import javax.ws.rs.Consumes;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,23 +16,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-=======
+
 import br.com.eng.vvs.commons.interfaces.BaseController;
 import br.com.eng.vvs.commons.interfaces.impl.BaseControllerImpl;
 import br.com.eng.vvs.province.model.Province;
 import br.com.eng.vvs.province.service.ProvinceService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-
-import javax.ws.rs.Consumes;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-import java.util.Set;
 
 @RestController
 public class ProvinceController extends BaseControllerImpl<Province, Integer> implements BaseController<Province> {
->>>>>>> 07df8fd8603b7fe270777dbca3a75980d1931a08
 
     @Autowired
     public ProvinceController(ProvinceService service) {
@@ -48,18 +46,11 @@ public class ProvinceController extends BaseControllerImpl<Province, Integer> im
         return super.insertAll(modelSet);
     }
 
-<<<<<<< HEAD
-    @GetMapping("/province")
-    public Iterable<Province> getAllProvinces(){
-    	service.findAll().forEach(e -> System.out.println(e));
-    	return service.findAll();
-=======
     @Override
     @GetMapping("/province")
     @Produces(MediaType.APPLICATION_JSON)
     public Iterable<Province> findAll() {
         return super.findAll();
->>>>>>> 07df8fd8603b7fe270777dbca3a75980d1931a08
     }
 
     @Override
@@ -68,30 +59,6 @@ public class ProvinceController extends BaseControllerImpl<Province, Integer> im
     public Province findById(@PathVariable("id") Integer id) {
         return super.findById(id);
     }
-<<<<<<< HEAD
-    
-    @DeleteMapping("/province/{id}")
-    public void deleteProvince(@PathVariable("id") Integer id){
-    	service.delete(id);
-    	
-    	//return Response.ok().build();
-    }
-    
-    @PostMapping("/province")
-    public Province insertProvince(@RequestBody Province province){
-    	service.save(province);
-    	
-    	return service.findOne(province.getId());
-    	//return Response.created(URI.create(String.format("/province/%s",province.getId().toString()))).build();
-    }
-    
-    @PutMapping("/province")
-    public Province updateProvince(@RequestBody Province province){
-    	service.save(province);
-    	
-    	return service.findOne(province.getId());
-    	//return Response.ok(province).build();
-=======
 
     @Override
     @PutMapping("/province")
@@ -129,6 +96,5 @@ public class ProvinceController extends BaseControllerImpl<Province, Integer> im
     @Produces(MediaType.APPLICATION_JSON)
     public Response deleteById(@PathVariable("id") Integer id) {
         return super.deleteById(id);
->>>>>>> 07df8fd8603b7fe270777dbca3a75980d1931a08
     }
 }
