@@ -21,10 +21,9 @@ spring:
         encrypt.enabled: false
         git:
           uri: https://github.com/kleberreis/config-repo-vvs/
-          searchPaths: provinceservice
-          username: kleberreis
-          password: kandrade82
-
+          searchPaths: provinceservice, zuulservice, distributorservice
+          username: vvseng
+          password: vvseng123
 
 ####
 #Classpath and file-based solution

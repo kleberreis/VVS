@@ -1,9 +1,5 @@
 package br.com.eng.vvs.province.controller;
 
-import java.net.URI;
-
-import javax.ws.rs.core.Response;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,7 +18,7 @@ public class ProvinceController{
 	@Autowired
 	private ProvinceService service;
 
-    @GetMapping("/provinces")
+    @GetMapping("/province")
     public Iterable<Province> getAllProvinces(){
     	service.findAll().forEach(e -> System.out.println(e));
     	return service.findAll();
@@ -34,23 +30,25 @@ public class ProvinceController{
     }
     
     @DeleteMapping("/province/{id}")
-    public Response deleteProvince(@PathVariable("id") Integer id){
+    public void deleteProvince(@PathVariable("id") Integer id){
     	service.delete(id);
     	
-    	return Response.ok().build();
+    	//return Response.ok().build();
     }
     
     @PostMapping("/province")
-    public Response insertProvince(@RequestBody Province province){
+    public Province insertProvince(@RequestBody Province province){
     	service.save(province);
     	
-    	return Response.created(URI.create(String.format("/province/%s",province.getId().toString()))).build();
+    	return service.findOne(province.getId());
+    	//return Response.created(URI.create(String.format("/province/%s",province.getId().toString()))).build();
     }
     
     @PutMapping("/province")
-    public Response updateProvince(@RequestBody Province province){
+    public Province updateProvince(@RequestBody Province province){
     	service.save(province);
     	
-    	return Response.ok(province).build();
+    	return service.findOne(province.getId());
+    	//return Response.ok(province).build();
     }
 }

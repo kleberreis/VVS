@@ -17,8 +17,10 @@
   </parent>
   <modules>
     <module>confsvr</module>
-    <module>province-service</module>
     <module>eurekasvr</module>
+    <module>zuulsvr</module>
+	<module>zipkinsvr</module>
+	<module>province-service</module>
   </modules>
   <build>
     <plugins>
@@ -31,6 +33,10 @@
         <imageName>example</imageName>
       </configuration>
       </plugin>
+      <plugin>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-maven-plugin</artifactId>
+	  </plugin>
     </plugins>
   </build>
 </project>
