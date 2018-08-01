@@ -17,10 +17,26 @@
   </parent>
   <modules>
     <module>confsvr</module>
+<<<<<<< HEAD
     <module>eurekasvr</module>
     <module>zuulsvr</module>
 	<module>zipkinsvr</module>
 	<module>province-service</module>
+=======
+    <module>province-service</module>
+    <module>affiliate-service</module>
+    <module>user-service</module>
+    <module>dealer-service</module>
+    <module>sub-dealer-service</module>
+    <module>recharge-point-service</module>
+    <module>operator-service</module>
+    <module>point-sale-service</module>
+    <module>point-sale-operator-service</module>
+    <module>wallet-service</module>
+    <module>payment-service</module>
+    <module>eurekasvr</module>
+    <module>commons</module>
+>>>>>>> 07df8fd8603b7fe270777dbca3a75980d1931a08
   </modules>
   <build>
     <plugins>

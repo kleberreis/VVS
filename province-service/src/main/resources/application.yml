@@ -20,4 +20,9 @@ logging:
   level:
     com.netflix: WARN
     org.springframework.web: WARN
+<<<<<<< HEAD
     br.com.eng.vvs: DEBUG
+=======
+    com.thoughtmechanix: DEBUG
+    br.com.eng: DEBUG
+>>>>>>> 07df8fd8603b7fe270777dbca3a75980d1931a08

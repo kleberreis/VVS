@@ -1,0 +1,2350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="4ca75e98-bd15-4ddb-943e-575690681b26" activeEnvironment="Default" name="VVS" soapui-version="5.4.0" abortOnError="false" runType="SEQUENTIAL" resourceRoot="" xmlns:con="http://eviware.com/soapui/config">
+    <con:settings/>
+    <con:interface xsi:type="con:RestService" id="033e63cf-23a4-4ed9-b079-ef925c5976d9" wadlVersion="http://wadl.dev.java.net/2009/02" name="User Service (8082)" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <con:description>User Service</con:description>
+        <con:settings/>
+
+        <con:definitionCache type="TEXT" rootPart=""/>
+        <con:endpoints>
+            <con:endpoint>http://localhost:8082</con:endpoint>
+        </con:endpoints>
+        <con:resource name="User" path="/user" id="8b36dcb0-0dc3-4bf4-8632-ece34563b821">
+            <con:settings/>
+            <con:parameters>
+                <con:parameter>
+                    <con:name>ID</con:name>
+                    <con:value/>
+                    <con:style>TEMPLATE</con:style>
+                    <con:default/>
+                    <con:description xsi:nil="true"/>
+                </con:parameter>
+            </con:parameters>
+            <con:method name="Find All User" id="89b71005-1e4a-41e8-9be9-ffc16d1de49a" method="GET">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params/>
+                    <con:element>Response</con:element>
+                </con:representation>
+                <con:representation type="FAULT">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>500</con:status>
+                    <con:params/>
+                    <con:element xmlns:user="http://localhost/user">user:Fault</con:element>
+                </con:representation>
+                <con:request name="Find All User Request 1" id="5f16bf43-a923-4731-9cc9-d257a4df0b9f" mediaType="application/json">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8082</con:endpoint>
+                    <con:request/>
+                    <con:originalUri>http://localhost/user</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters>
+                        <entry key="ID" value="" xmlns="http://eviware.com/soapui/config"/>
+                    </con:parameters>
+                    <con:parameterOrder>
+                        <con:entry>ID</con:entry>
+                    </con:parameterOrder>
+                </con:request>
+            </con:method>
+            <con:method name="Insert User" id="4b018788-1ce0-4bb6-9bff-980b6e50bdf7" method="POST">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params/>
+                    <con:element xmlns:user="http://localhost/user">user:Response</con:element>
+                </con:representation>
+                <con:representation type="REQUEST">
+                    <con:mediaType>application/json</con:mediaType>
+                    <con:params/>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType xsi:nil="true"/>
+                    <con:status>0</con:status>
+                    <con:params/>
+                    <con:element>data</con:element>
+                </con:representation>
+                <con:request name="Insert User Request 1" id="0a97b85f-8838-4ce1-bd35-7282eb6a6ccd" mediaType="application/json" postQueryString="false">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8082</con:endpoint>
+                    <con:request>{
+                        "name":"Raphael",
+                        "login":"Raphael",
+                        "password":"teste",
+                        "phone":"1122223333",
+                        "email":"raphael@eng.com",
+                        "address":"rua da rua"
+                        }
+                    </con:request>
+                    <con:originalUri>http://localhost/user</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters>
+                        <entry key="ID" value="" xmlns="http://eviware.com/soapui/config"/>
+                    </con:parameters>
+                    <con:parameterOrder>
+                        <con:entry>ID</con:entry>
+                    </con:parameterOrder>
+                </con:request>
+            </con:method>
+            <con:method name="Update User" id="50f48d7e-4306-4b21-a75b-cb3c9a675f33" method="PUT">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="REQUEST">
+                    <con:mediaType>application/json</con:mediaType>
+                    <con:params/>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params/>
+                    <con:element xmlns:user="http://localhost/user">user:Response</con:element>
+                </con:representation>
+                <con:representation type="FAULT">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>400</con:status>
+                    <con:params/>
+                    <con:element xmlns:user="http://localhost/user">user:Fault</con:element>
+                </con:representation>
+                <con:request name="Update User Request 1" id="8d88f765-0b23-4667-83ca-f16bc39ec88e" mediaType="application/json" postQueryString="false">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8082</con:endpoint>
+                    <con:request>{
+                        "id": 2,
+                        "login": "Raphael",
+                        "password": "$2a$11$HIMTN8Lt/GybfUciScYNjufJtWhvbVbpxdpHHolmbsjW88gPjBaU2",
+                        "name": "Raphael Rossi",
+                        "address": "Rua das avenidas",
+                        "email": "raphael@eng.com",
+                        "phone": "1122223333",
+                        "cityId": 1,
+                        "lastLoginDate": null,
+                        "lastLoginDateCache": null,
+                        "role": null,
+                        "area": null,
+                        "changePassword": null,
+                        "blockReason": null,
+                        "blockDescription": null,
+                        "expirationDate": null,
+                        "passwordRaw": "teste@1",
+                        "remoteLogin": null,
+                        "blockedInactivity": false,
+                        "passwordExpired": false,
+                        "externalAuthentication": false,
+                        "userPasswordHistorySet": null
+                        }
+                    </con:request>
+                    <con:originalUri>http://localhost/user</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters>
+                        <entry key="ID" value="" xmlns="http://eviware.com/soapui/config"/>
+                    </con:parameters>
+                    <con:parameterOrder>
+                        <con:entry>ID</con:entry>
+                    </con:parameterOrder>
+                </con:request>
+            </con:method>
+            <con:method name="Delete User" id="9ba46c4c-0a23-42d3-9889-d66b544dfca0" method="DELETE">
+                <con:settings/>
+                <con:parameters/>
+                <con:request name="Delete User Request 1" id="5ebd6a14-c397-4ec5-8f04-e3ea2f5093c7" mediaType="application/json" postQueryString="false">
+                    <con:settings/>
+                    <con:endpoint>http://localhost:8082</con:endpoint>
+                    <con:request/>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters>
+                        <entry key="ID" value="" xmlns="http://eviware.com/soapui/config"/>
+                    </con:parameters>
+                    <con:parameterOrder>
+                        <con:entry>ID</con:entry>
+                    </con:parameterOrder>
+                </con:request>
+            </con:method>
+            <con:method name="Find User By Id" id="981edc3f-a609-4dff-ab22-f15d9a7beba6" method="GET">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params/>
+                    <con:element>Response</con:element>
+                </con:representation>
+                <con:representation type="FAULT">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>500</con:status>
+                    <con:params/>
+                    <con:element xmlns:user="http://localhost/user">user:Fault</con:element>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType xsi:nil="true"/>
+                    <con:status>0</con:status>
+                    <con:params/>
+                    <con:element>data</con:element>
+                </con:representation>
+                <con:request name="Find User By Id Request 1" id="fd1de772-4ce1-4265-b9a4-74658ca8a5ef" mediaType="application/json">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8082</con:endpoint>
+                    <con:request/>
+                    <con:originalUri>http://localhost/user</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters>
+                        <entry key="ID" value="10" xmlns="http://eviware.com/soapui/config"/>
+                    </con:parameters>
+                    <con:parameterOrder>
+                        <con:entry>ID</con:entry>
+                    </con:parameterOrder>
+                </con:request>
+            </con:method>
+        </con:resource>
+        <con:resource name="Login" path="/login" id="8c22d505-ae43-4806-8228-a48fe6d359c3">
+            <con:settings/>
+            <con:parameters/>
+            <con:method name="Login" id="192047c1-1284-4980-bbda-60da53ccea7e" method="POST">
+                <con:settings/>
+                <con:parameters/>
+                <con:request name="Login Request 1" id="eba9489f-b7bd-4d54-9a72-95405c596629" mediaType="application/json" postQueryString="false">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8082</con:endpoint>
+                    <con:request/>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters/>
+                </con:request>
+            </con:method>
+        </con:resource>
+        <con:resource name="User All" path="/UserAll" id="c392e9e4-2faa-459e-a0a4-3e6dd1350e71">
+            <con:settings/>
+            <con:parameters/>
+            <con:method name="Insert User By List" id="cd04e844-1ebc-4a8d-ba5a-22af7c134c30" method="POST">
+                <con:settings/>
+                <con:parameters/>
+                <con:request name="Insert User By List Request 1" id="44fea691-c669-40be-830c-986cceb654f2" mediaType="application/json" postQueryString="false">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8082</con:endpoint>
+                    <con:request/>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters/>
+                </con:request>
+            </con:method>
+            <con:method name="Delete User By List" id="cd04e844-1ebc-4a8d-ba5a-22af7c134c30" method="DELETE">
+                <con:settings/>
+                <con:parameters/>
+                <con:request name="Delete User By List Request 1" id="44fea691-c669-40be-830c-986cceb654f2" mediaType="application/json" postQueryString="false">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8082</con:endpoint>
+                    <con:request/>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters/>
+                </con:request>
+            </con:method>
+        </con:resource>
+        <con:resource name="User Password History" path="/passwordHistory/{id}" id="08efbb4a-a9bb-4fd5-a359-ffc4f3b8c620">
+            <con:settings/>
+            <con:parameters>
+                <con:parameter>
+                    <con:name>ID</con:name>
+                    <con:value/>
+                    <con:style>TEMPLATE</con:style>
+                    <con:default/>
+                    <con:description xsi:nil="true"/>
+                </con:parameter>
+            </con:parameters>
+            <con:method name="Find Password History By Id" id="9668aac7-e3f0-44c5-a3fd-895d5abb71a8" method="GET">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="FAULT">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>500 400 404</con:status>
+                    <con:params/>
+                    <con:element xmlns:user="http://localhost/userPasswordHistory">user:Fault</con:element>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params/>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType xsi:nil="true"/>
+                    <con:status>200</con:status>
+                    <con:params/>
+                    <con:element>data</con:element>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType xsi:nil="true"/>
+                    <con:status>200</con:status>
+                    <con:params/>
+                    <con:element>data</con:element>
+                </con:representation>
+                <con:request name="Find Password History By Id Request 1" id="d77301a4-5554-4728-8f00-92565f35c80f" mediaType="application/json">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8082</con:endpoint>
+                    <con:request/>
+                    <con:originalUri>http://localhost/userPasswordHistory</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters>
+                        <entry key="ID" value="4" xmlns="http://eviware.com/soapui/config"/>
+                    </con:parameters>
+                    <con:parameterOrder>
+                        <con:entry>ID</con:entry>
+                    </con:parameterOrder>
+                </con:request>
+            </con:method>
+        </con:resource>
+        <con:resource name="Password History User" path="/passwordHistoryUser/{id}" id="5508525b-3f90-47fb-9bef-6ff40d20c633">
+            <con:settings/>
+            <con:parameters>
+                <con:parameter>
+                    <con:name>ID</con:name>
+                    <con:value/>
+                    <con:style>TEMPLATE</con:style>
+                    <con:default/>
+                    <con:description xsi:nil="true"/>
+                </con:parameter>
+            </con:parameters>
+            <con:method name="Find Password History By User Id" id="06233deb-7878-479e-8eb9-d5c46c241f0f" method="GET">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="FAULT">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>500</con:status>
+                    <con:params/>
+                    <con:element xmlns:pas="http://localhost/passwordHistoryUser2">pas:Fault</con:element>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params/>
+                    <con:element>Response</con:element>
+                </con:representation>
+                <con:request name="Find Password History By User Id Request 1" id="20bb15a4-9caa-480b-8eac-6a470b2f00d1" mediaType="application/json">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8082</con:endpoint>
+                    <con:request/>
+                    <con:originalUri>http://localhost/passwordHistoryUser2</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters>
+                        <entry key="ID" value="2" xmlns="http://eviware.com/soapui/config"/>
+                    </con:parameters>
+                    <con:parameterOrder>
+                        <con:entry>ID</con:entry>
+                    </con:parameterOrder>
+                </con:request>
+            </con:method>
+        </con:resource>
+        <con:resource name="Role" path="/role" id="8b36dcb0-0dc3-4bf4-8632-ece34563b821">
+            <con:settings/>
+            <con:parameters>
+                <con:parameter>
+                    <con:name>ID</con:name>
+                    <con:value/>
+                    <con:style>TEMPLATE</con:style>
+                    <con:default/>
+                    <con:description xsi:nil="true"/>
+                </con:parameter>
+            </con:parameters>
+            <con:method name="Find All Role" id="89b71005-1e4a-41e8-9be9-ffc16d1de49a" method="GET">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params/>
+                    <con:element>Response</con:element>
+                </con:representation>
+                <con:representation type="FAULT">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>500</con:status>
+                    <con:params/>
+                    <con:element xmlns:user="http://localhost/user">user:Fault</con:element>
+                </con:representation>
+                <con:request name="Find All Role Request 1" id="5f16bf43-a923-4731-9cc9-d257a4df0b9f" mediaType="application/json">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8082</con:endpoint>
+                    <con:request/>
+                    <con:originalUri>http://localhost/user</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters>
+                        <entry key="ID" value="" xmlns="http://eviware.com/soapui/config"/>
+                    </con:parameters>
+                    <con:parameterOrder>
+                        <con:entry>ID</con:entry>
+                    </con:parameterOrder>
+                </con:request>
+            </con:method>
+            <con:method name="Insert Role" id="4b018788-1ce0-4bb6-9bff-980b6e50bdf7" method="POST">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params/>
+                    <con:element xmlns:user="http://localhost/user">user:Response</con:element>
+                </con:representation>
+                <con:representation type="REQUEST">
+                    <con:mediaType>application/json</con:mediaType>
+                    <con:params/>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType xsi:nil="true"/>
+                    <con:status>0</con:status>
+                    <con:params/>
+                    <con:element>data</con:element>
+                </con:representation>
+                <con:request name="Insert Role Request 1" id="0a97b85f-8838-4ce1-bd35-7282eb6a6ccd" mediaType="application/json" postQueryString="false">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8082</con:endpoint>
+                    <con:request>{
+                        "description":"Role Admin"
+                        }
+                    </con:request>
+                    <con:originalUri>http://localhost/user</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters>
+                        <entry key="ID" value="" xmlns="http://eviware.com/soapui/config"/>
+                    </con:parameters>
+                    <con:parameterOrder>
+                        <con:entry>ID</con:entry>
+                    </con:parameterOrder>
+                </con:request>
+            </con:method>
+            <con:method name="Update Role" id="50f48d7e-4306-4b21-a75b-cb3c9a675f33" method="PUT">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="REQUEST">
+                    <con:mediaType>application/json</con:mediaType>
+                    <con:params/>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params/>
+                    <con:element xmlns:user="http://localhost/user">user:Response</con:element>
+                </con:representation>
+                <con:representation type="FAULT">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>400</con:status>
+                    <con:params/>
+                    <con:element xmlns:user="http://localhost/user">user:Fault</con:element>
+                </con:representation>
+                <con:request name="Update Role Request 1" id="8d88f765-0b23-4667-83ca-f16bc39ec88e" mediaType="application/json" postQueryString="false">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8082</con:endpoint>
+                    <con:request>{
+                        "id": 2,
+                        "login": "Raphael",
+                        "password": "$2a$11$HIMTN8Lt/GybfUciScYNjufJtWhvbVbpxdpHHolmbsjW88gPjBaU2",
+                        "name": "Raphael Rossi",
+                        "address": "Rua das avenidas",
+                        "email": "raphael@eng.com",
+                        "phone": "1122223333",
+                        "cityId": 1,
+                        "lastLoginDate": null,
+                        "lastLoginDateCache": null,
+                        "role": null,
+                        "area": null,
+                        "changePassword": null,
+                        "blockReason": null,
+                        "blockDescription": null,
+                        "expirationDate": null,
+                        "passwordRaw": "teste@1",
+                        "remoteLogin": null,
+                        "blockedInactivity": false,
+                        "passwordExpired": false,
+                        "externalAuthentication": false,
+                        "userPasswordHistorySet": null
+                        }
+                    </con:request>
+                    <con:originalUri>http://localhost/user</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters>
+                        <entry key="ID" value="" xmlns="http://eviware.com/soapui/config"/>
+                    </con:parameters>
+                    <con:parameterOrder>
+                        <con:entry>ID</con:entry>
+                    </con:parameterOrder>
+                </con:request>
+            </con:method>
+            <con:method name="Delete Role" id="9ba46c4c-0a23-42d3-9889-d66b544dfca0" method="DELETE">
+                <con:settings/>
+                <con:parameters/>
+                <con:request name="Delete Role Request 1" id="5ebd6a14-c397-4ec5-8f04-e3ea2f5093c7" mediaType="application/json" postQueryString="false">
+                    <con:settings/>
+                    <con:endpoint>http://localhost:8082</con:endpoint>
+                    <con:request/>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters>
+                        <entry key="ID" value="" xmlns="http://eviware.com/soapui/config"/>
+                    </con:parameters>
+                    <con:parameterOrder>
+                        <con:entry>ID</con:entry>
+                    </con:parameterOrder>
+                </con:request>
+            </con:method>
+            <con:method name="Find Role By Id" id="981edc3f-a609-4dff-ab22-f15d9a7beba6" method="GET">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params/>
+                    <con:element>Response</con:element>
+                </con:representation>
+                <con:representation type="FAULT">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>500</con:status>
+                    <con:params/>
+                    <con:element xmlns:user="http://localhost/user">user:Fault</con:element>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType xsi:nil="true"/>
+                    <con:status>0</con:status>
+                    <con:params/>
+                    <con:element>data</con:element>
+                </con:representation>
+                <con:request name="Find User By Id Request 1" id="fd1de772-4ce1-4265-b9a4-74658ca8a5ef" mediaType="application/json">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8082</con:endpoint>
+                    <con:request/>
+                    <con:originalUri>http://localhost/user</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters>
+                        <entry key="ID" value="10" xmlns="http://eviware.com/soapui/config"/>
+                    </con:parameters>
+                    <con:parameterOrder>
+                        <con:entry>ID</con:entry>
+                    </con:parameterOrder>
+                </con:request>
+            </con:method>
+        </con:resource>
+        <con:resource name="Operation" path="/operation" id="8b36dcb0-0dc3-4bf4-8632-ece34563b821">
+            <con:settings/>
+            <con:parameters>
+                <con:parameter>
+                    <con:name>ID</con:name>
+                    <con:value/>
+                    <con:style>TEMPLATE</con:style>
+                    <con:default/>
+                    <con:description xsi:nil="true"/>
+                </con:parameter>
+            </con:parameters>
+            <con:method name="Find All Operation" id="89b71005-1e4a-41e8-9be9-ffc16d1de49a" method="GET">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params/>
+                    <con:element>Response</con:element>
+                </con:representation>
+                <con:representation type="FAULT">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>500</con:status>
+                    <con:params/>
+                    <con:element xmlns:user="http://localhost/user">user:Fault</con:element>
+                </con:representation>
+                <con:request name="Find All Operation Request 1" id="5f16bf43-a923-4731-9cc9-d257a4df0b9f" mediaType="application/json">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8082</con:endpoint>
+                    <con:request/>
+                    <con:originalUri>http://localhost/user</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters>
+                        <entry key="ID" value="" xmlns="http://eviware.com/soapui/config"/>
+                    </con:parameters>
+                    <con:parameterOrder>
+                        <con:entry>ID</con:entry>
+                    </con:parameterOrder>
+                </con:request>
+            </con:method>
+            <con:method name="Insert Operation" id="4b018788-1ce0-4bb6-9bff-980b6e50bdf7" method="POST">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params/>
+                    <con:element xmlns:user="http://localhost/user">user:Response</con:element>
+                </con:representation>
+                <con:representation type="REQUEST">
+                    <con:mediaType>application/json</con:mediaType>
+                    <con:params/>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType xsi:nil="true"/>
+                    <con:status>0</con:status>
+                    <con:params/>
+                    <con:element>data</con:element>
+                </con:representation>
+                <con:request name="Insert Operation Request 1" id="0a97b85f-8838-4ce1-bd35-7282eb6a6ccd" mediaType="application/json" postQueryString="false">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8082</con:endpoint>
+                    <con:request>{
+                        "description":"Logar no sistema USSD",
+                        "operation":"LoginUssd"
+                        }
+                    </con:request>
+                    <con:originalUri>http://localhost/user</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters>
+                        <entry key="ID" value="" xmlns="http://eviware.com/soapui/config"/>
+                    </con:parameters>
+                    <con:parameterOrder>
+                        <con:entry>ID</con:entry>
+                    </con:parameterOrder>
+                </con:request>
+            </con:method>
+            <con:method name="Update Operation" id="50f48d7e-4306-4b21-a75b-cb3c9a675f33" method="PUT">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="REQUEST">
+                    <con:mediaType>application/json</con:mediaType>
+                    <con:params/>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params/>
+                    <con:element xmlns:user="http://localhost/user">user:Response</con:element>
+                </con:representation>
+                <con:representation type="FAULT">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>400</con:status>
+                    <con:params/>
+                    <con:element xmlns:user="http://localhost/user">user:Fault</con:element>
+                </con:representation>
+                <con:request name="Update Operation Request 1" id="8d88f765-0b23-4667-83ca-f16bc39ec88e" mediaType="application/json" postQueryString="false">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8082</con:endpoint>
+                    <con:request>{
+                        "id": 2,
+                        "login": "Raphael",
+                        "password": "$2a$11$HIMTN8Lt/GybfUciScYNjufJtWhvbVbpxdpHHolmbsjW88gPjBaU2",
+                        "name": "Raphael Rossi",
+                        "address": "Rua das avenidas",
+                        "email": "raphael@eng.com",
+                        "phone": "1122223333",
+                        "cityId": 1,
+                        "lastLoginDate": null,
+                        "lastLoginDateCache": null,
+                        "role": null,
+                        "area": null,
+                        "changePassword": null,
+                        "blockReason": null,
+                        "blockDescription": null,
+                        "expirationDate": null,
+                        "passwordRaw": "teste@1",
+                        "remoteLogin": null,
+                        "blockedInactivity": false,
+                        "passwordExpired": false,
+                        "externalAuthentication": false,
+                        "userPasswordHistorySet": null
+                        }
+                    </con:request>
+                    <con:originalUri>http://localhost/user</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters>
+                        <entry key="ID" value="" xmlns="http://eviware.com/soapui/config"/>
+                    </con:parameters>
+                    <con:parameterOrder>
+                        <con:entry>ID</con:entry>
+                    </con:parameterOrder>
+                </con:request>
+            </con:method>
+            <con:method name="Delete Operation" id="9ba46c4c-0a23-42d3-9889-d66b544dfca0" method="DELETE">
+                <con:settings/>
+                <con:parameters/>
+                <con:request name="Delete Operation Request 1" id="5ebd6a14-c397-4ec5-8f04-e3ea2f5093c7" mediaType="application/json" postQueryString="false">
+                    <con:settings/>
+                    <con:endpoint>http://localhost:8082</con:endpoint>
+                    <con:request/>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters>
+                        <entry key="ID" value="" xmlns="http://eviware.com/soapui/config"/>
+                    </con:parameters>
+                    <con:parameterOrder>
+                        <con:entry>ID</con:entry>
+                    </con:parameterOrder>
+                </con:request>
+            </con:method>
+            <con:method name="Find Operation By Id" id="981edc3f-a609-4dff-ab22-f15d9a7beba6" method="GET">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params/>
+                    <con:element>Response</con:element>
+                </con:representation>
+                <con:representation type="FAULT">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>500</con:status>
+                    <con:params/>
+                    <con:element xmlns:user="http://localhost/user">user:Fault</con:element>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType xsi:nil="true"/>
+                    <con:status>0</con:status>
+                    <con:params/>
+                    <con:element>data</con:element>
+                </con:representation>
+                <con:request name="Find Operation By Id Request 1" id="fd1de772-4ce1-4265-b9a4-74658ca8a5ef" mediaType="application/json">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8082</con:endpoint>
+                    <con:request/>
+                    <con:originalUri>http://localhost/user</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters>
+                        <entry key="ID" value="10" xmlns="http://eviware.com/soapui/config"/>
+                    </con:parameters>
+                    <con:parameterOrder>
+                        <con:entry>ID</con:entry>
+                    </con:parameterOrder>
+                </con:request>
+            </con:method>
+        </con:resource>
+        <con:resource name="Role Operation" path="/roleOperation" id="8b36dcb0-0dc3-4bf4-8632-ece34563b821">
+            <con:settings/>
+            <con:parameters>
+                <con:parameter>
+                    <con:name>ID</con:name>
+                    <con:value/>
+                    <con:style>TEMPLATE</con:style>
+                    <con:default/>
+                    <con:description xsi:nil="true"/>
+                </con:parameter>
+            </con:parameters>
+            <con:method name="Find All Role Operation" id="89b71005-1e4a-41e8-9be9-ffc16d1de49a" method="GET">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params/>
+                    <con:element>Response</con:element>
+                </con:representation>
+                <con:representation type="FAULT">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>500</con:status>
+                    <con:params/>
+                    <con:element xmlns:user="http://localhost/user">user:Fault</con:element>
+                </con:representation>
+                <con:request name="Find All Role Operation Request 1" id="5f16bf43-a923-4731-9cc9-d257a4df0b9f" mediaType="application/json">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8082</con:endpoint>
+                    <con:request/>
+                    <con:originalUri>http://localhost/user</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters>
+                        <entry key="ID" value="" xmlns="http://eviware.com/soapui/config"/>
+                    </con:parameters>
+                    <con:parameterOrder>
+                        <con:entry>ID</con:entry>
+                    </con:parameterOrder>
+                </con:request>
+            </con:method>
+            <con:method name="Insert Role Operation" id="4b018788-1ce0-4bb6-9bff-980b6e50bdf7" method="POST">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params/>
+                    <con:element xmlns:user="http://localhost/user">user:Response</con:element>
+                </con:representation>
+                <con:representation type="REQUEST">
+                    <con:mediaType>application/json</con:mediaType>
+                    <con:params/>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType xsi:nil="true"/>
+                    <con:status>0</con:status>
+                    <con:params/>
+                    <con:element>data</con:element>
+                </con:representation>
+                <con:request name="Insert Role Operation Request 1" id="0a97b85f-8838-4ce1-bd35-7282eb6a6ccd" mediaType="application/json" postQueryString="false">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8082</con:endpoint>
+                    <con:request>{
+                        "role":{
+                        "id":2
+                        },
+                        "operation":{
+                        "id":2
+                        }
+                        }
+                    </con:request>
+                    <con:originalUri>http://localhost/user</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters>
+                        <entry key="ID" value="" xmlns="http://eviware.com/soapui/config"/>
+                    </con:parameters>
+                    <con:parameterOrder>
+                        <con:entry>ID</con:entry>
+                    </con:parameterOrder>
+                </con:request>
+            </con:method>
+            <con:method name="Update Role Operation" id="50f48d7e-4306-4b21-a75b-cb3c9a675f33" method="PUT">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="REQUEST">
+                    <con:mediaType>application/json</con:mediaType>
+                    <con:params/>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params/>
+                    <con:element xmlns:user="http://localhost/user">user:Response</con:element>
+                </con:representation>
+                <con:representation type="FAULT">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>400</con:status>
+                    <con:params/>
+                    <con:element xmlns:user="http://localhost/user">user:Fault</con:element>
+                </con:representation>
+                <con:request name="Update Role Operation Request 1" id="8d88f765-0b23-4667-83ca-f16bc39ec88e" mediaType="application/json" postQueryString="false">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8082</con:endpoint>
+                    <con:request>{
+                        "id": 2,
+                        "login": "Raphael",
+                        "password": "$2a$11$HIMTN8Lt/GybfUciScYNjufJtWhvbVbpxdpHHolmbsjW88gPjBaU2",
+                        "name": "Raphael Rossi",
+                        "address": "Rua das avenidas",
+                        "email": "raphael@eng.com",
+                        "phone": "1122223333",
+                        "cityId": 1,
+                        "lastLoginDate": null,
+                        "lastLoginDateCache": null,
+                        "role": null,
+                        "area": null,
+                        "changePassword": null,
+                        "blockReason": null,
+                        "blockDescription": null,
+                        "expirationDate": null,
+                        "passwordRaw": "teste@1",
+                        "remoteLogin": null,
+                        "blockedInactivity": false,
+                        "passwordExpired": false,
+                        "externalAuthentication": false,
+                        "userPasswordHistorySet": null
+                        }
+                    </con:request>
+                    <con:originalUri>http://localhost/user</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters>
+                        <entry key="ID" value="" xmlns="http://eviware.com/soapui/config"/>
+                    </con:parameters>
+                    <con:parameterOrder>
+                        <con:entry>ID</con:entry>
+                    </con:parameterOrder>
+                </con:request>
+            </con:method>
+            <con:method name="Delete Role Operation" id="9ba46c4c-0a23-42d3-9889-d66b544dfca0" method="DELETE">
+                <con:settings/>
+                <con:parameters/>
+                <con:request name="Delete Role Operation Request 1" id="5ebd6a14-c397-4ec5-8f04-e3ea2f5093c7" mediaType="application/json" postQueryString="false">
+                    <con:settings/>
+                    <con:endpoint>http://localhost:8082</con:endpoint>
+                    <con:request/>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters>
+                        <entry key="ID" value="" xmlns="http://eviware.com/soapui/config"/>
+                    </con:parameters>
+                    <con:parameterOrder>
+                        <con:entry>ID</con:entry>
+                    </con:parameterOrder>
+                </con:request>
+            </con:method>
+            <con:method name="Find Role Operation By Id" id="981edc3f-a609-4dff-ab22-f15d9a7beba6" method="GET">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params/>
+                    <con:element>Response</con:element>
+                </con:representation>
+                <con:representation type="FAULT">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>500</con:status>
+                    <con:params/>
+                    <con:element xmlns:user="http://localhost/user">user:Fault</con:element>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType xsi:nil="true"/>
+                    <con:status>0</con:status>
+                    <con:params/>
+                    <con:element>data</con:element>
+                </con:representation>
+                <con:request name="Find Role Operation By Id Request 1" id="fd1de772-4ce1-4265-b9a4-74658ca8a5ef" mediaType="application/json">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8082</con:endpoint>
+                    <con:request/>
+                    <con:originalUri>http://localhost/user</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters>
+                        <entry key="ID" value="10" xmlns="http://eviware.com/soapui/config"/>
+                    </con:parameters>
+                    <con:parameterOrder>
+                        <con:entry>ID</con:entry>
+                    </con:parameterOrder>
+                </con:request>
+            </con:method>
+        </con:resource>
+        <con:resource name="userCity" path="/city" id="77891156-bb50-4c57-9b02-cd666de0eb0c">
+            <con:settings/>
+            <con:parameters>
+                <con:parameter>
+                    <con:name>city</con:name>
+                    <con:value/>
+                    <con:style>QUERY</con:style>
+                    <con:default/>
+                    <con:description xsi:nil="true"/>
+                </con:parameter>
+            </con:parameters>
+            <con:method name="Method 1" id="f24247f1-1849-4e54-b270-ffaae79f239d" method="GET">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="FAULT">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>400 404</con:status>
+                    <con:params/>
+                    <con:element xmlns:user="http://localhost/userCity">user:Fault</con:element>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params/>
+                    <con:element>Response</con:element>
+                </con:representation>
+                <con:request name="Request 1" id="27c04889-a7da-4881-abcf-d0544d40df87" mediaType="application/json">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8082</con:endpoint>
+                    <con:request/>
+                    <con:originalUri>http://localhost/userCity</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters>
+                        <entry key="city" value="2" xmlns="http://eviware.com/soapui/config"/>
+                    </con:parameters>
+                    <con:parameterOrder>
+                        <con:entry>city</con:entry>
+                    </con:parameterOrder>
+                </con:request>
+            </con:method>
+        </con:resource>
+    </con:interface>
+    <con:interface xsi:type="con:RestService" id="6af5ca3f-82e2-41d3-94bd-8845145b0af1" wadlVersion="http://wadl.dev.java.net/2009/02" name="Province Service (8081)" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <con:description>Province Service</con:description>
+        <con:settings/>
+        <con:definitionCache type="TEXT" rootPart=""/>
+        <con:endpoints>
+            <con:endpoint>http://localhost:8081</con:endpoint>
+        </con:endpoints>
+        <con:resource name="Province" path="/province" id="19f488c2-57be-4006-97a9-1eff49a03bcb">
+            <con:settings/>
+            <con:parameters/>
+            <con:method name="Find All" id="f50b1f62-ca3f-46ad-9c07-a982563029f9" method="GET">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params/>
+                    <con:element>Response</con:element>
+                </con:representation>
+                <con:request name="Find All Province Request 1" id="472a074c-083c-451b-886e-443c608df9d6" mediaType="application/json">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8081</con:endpoint>
+                    <con:request/>
+                    <con:originalUri>http://localhost/province</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters/>
+                </con:request>
+            </con:method>
+            <con:method name="Insert" id="0bfd2dd1-5ff5-4e6f-855d-2c18dfd28196" method="POST">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="REQUEST">
+                    <con:mediaType>application/json</con:mediaType>
+                    <con:params/>
+                </con:representation>
+                <con:representation type="FAULT">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>400</con:status>
+                    <con:params/>
+                    <con:element xmlns:prov="http://localhost/province">prov:Fault</con:element>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params/>
+                    <con:element xmlns:prov="http://localhost/province">prov:Response</con:element>
+                </con:representation>
+                <con:request name="Insert Province Request 1" id="fd2f858c-54a3-47f9-aa51-b3f43baa6913" mediaType="application/json" postQueryString="false">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8081</con:endpoint>
+                    <con:request>{
+                        "initials":"SP",
+                        "name":"São Paulo"
+                        }
+                    </con:request>
+                    <con:originalUri>http://localhost/province</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters/>
+                </con:request>
+            </con:method>
+            <con:method name="Update" id="2e5bd227-8e3d-44a4-95bb-58b217675e55" method="DELETE">
+                <con:settings/>
+                <con:parameters/>
+                <con:request name="Update Province Request 1" id="bec46621-04e3-444c-9eb8-190edb900218" mediaType="application/json" postQueryString="false">
+                    <con:settings/>
+                    <con:endpoint>http://localhost:8081</con:endpoint>
+                    <con:request/>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters/>
+                </con:request>
+            </con:method>
+            <con:method name="Delete" id="53c002bd-483c-4a0b-a258-4420f01e2d7e" method="DELETE">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="REQUEST">
+                    <con:mediaType>application/json</con:mediaType>
+                    <con:params/>
+                </con:representation>
+                <con:representation type="FAULT">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>400</con:status>
+                    <con:params/>
+                    <con:element xmlns:prov="http://localhost/province">prov:Fault</con:element>
+                </con:representation>
+                <con:request name="Delete Province Request 1" id="44c1c134-6b8b-42a3-aec6-771293b776e1" mediaType="application/json" postQueryString="false">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8081</con:endpoint>
+                    <con:request/>
+                    <con:originalUri>http://localhost/province</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters/>
+                </con:request>
+            </con:method>
+        </con:resource>
+        <con:resource name="City" path="/city/{id}" id="e9258595-ff0f-4ca9-8abc-9689927402fa">
+            <con:settings/>
+            <con:parameters>
+                <con:parameter>
+                    <con:name>ID</con:name>
+                    <con:value>a</con:value>
+                    <con:style>TEMPLATE</con:style>
+                    <con:default>a</con:default>
+                    <con:description xsi:nil="true"/>
+                </con:parameter>
+            </con:parameters>
+            <con:method name="Find All" id="7b45d59e-f688-4522-9186-798a9069a286" method="GET">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params/>
+                    <con:element>Response</con:element>
+                </con:representation>
+                <con:request name="Find All City Request 1" id="6c743ab1-09bf-4e5d-b49d-9afff5233b05" mediaType="application/json">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8081</con:endpoint>
+                    <con:request/>
+                    <con:originalUri>http://localhost/city</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters>
+                        <entry key="ID" value="a" xmlns="http://eviware.com/soapui/config"/>
+                    </con:parameters>
+                    <con:parameterOrder>
+                        <con:entry>ID</con:entry>
+                    </con:parameterOrder>
+                </con:request>
+            </con:method>
+            <con:method name="Insert" id="27513729-d83e-4425-b460-081c3a434365" method="POST">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params/>
+                    <con:element xmlns:city="http://localhost/city">city:Response</con:element>
+                </con:representation>
+                <con:representation type="REQUEST">
+                    <con:mediaType>application/json</con:mediaType>
+                    <con:params/>
+                </con:representation>
+                <con:request name="Insert City Request 1" id="e3a0642d-866e-40c5-8bd0-466700affe96" mediaType="application/json" postQueryString="false">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8081</con:endpoint>
+                    <con:request>{
+                        "name":"São Bernardo do Campo",
+                        "province": {
+                        "id":1
+                        }
+                        }
+                    </con:request>
+                    <con:originalUri>http://localhost/city</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters>
+                        <entry key="ID" value="a" xmlns="http://eviware.com/soapui/config"/>
+                    </con:parameters>
+                    <con:parameterOrder>
+                        <con:entry>ID</con:entry>
+                    </con:parameterOrder>
+                </con:request>
+            </con:method>
+            <con:method name="Update" id="c8ad5ef9-247c-4de5-964e-a38591c0fb3a" method="PUT">
+                <con:settings/>
+                <con:parameters/>
+                <con:request name="Update City Request 1" id="e52fc76f-7df2-4698-a853-bccb8d045aac" mediaType="application/json" postQueryString="false">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8081</con:endpoint>
+                    <con:request/>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters>
+                        <entry key="ID" value="a" xmlns="http://eviware.com/soapui/config"/>
+                    </con:parameters>
+                    <con:parameterOrder>
+                        <con:entry>ID</con:entry>
+                    </con:parameterOrder>
+                </con:request>
+            </con:method>
+            <con:method name="Delete" id="3e6eb554-94f6-4521-89f8-0dfd5c968ef1" method="DELETE">
+                <con:settings/>
+                <con:parameters/>
+                <con:request name="Delete City Request 1" id="f7542f44-c95e-4135-907d-31909f1882d1" mediaType="application/json" postQueryString="false">
+                    <con:settings/>
+                    <con:endpoint>http://localhost:8081</con:endpoint>
+                    <con:request/>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters>
+                        <entry key="ID" value="a" xmlns="http://eviware.com/soapui/config"/>
+                    </con:parameters>
+                    <con:parameterOrder>
+                        <con:entry>ID</con:entry>
+                    </con:parameterOrder>
+                </con:request>
+            </con:method>
+            <con:method name="Find By Id" id="5ec201bf-bf13-4a26-9eb7-11c8a98a1f9f" method="GET">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params/>
+                    <con:element>Response</con:element>
+                </con:representation>
+                <con:representation type="FAULT">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>400 500</con:status>
+                    <con:params/>
+                    <con:element xmlns:city="http://localhost/city">city:Fault</con:element>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType xsi:nil="true"/>
+                    <con:status>0</con:status>
+                    <con:params/>
+                    <con:element>data</con:element>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType xsi:nil="true"/>
+                    <con:status>200</con:status>
+                    <con:params/>
+                    <con:element>data</con:element>
+                </con:representation>
+                <con:request name="Find By Id City Request 1" id="e32f5b5f-a6f5-4149-8622-9350a7dbca69" mediaType="application/json">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8081</con:endpoint>
+                    <con:request/>
+                    <con:originalUri>http://localhost/city</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters>
+                        <entry key="ID" value="1" xmlns="http://eviware.com/soapui/config"/>
+                    </con:parameters>
+                    <con:parameterOrder>
+                        <con:entry>ID</con:entry>
+                    </con:parameterOrder>
+                </con:request>
+            </con:method>
+        </con:resource>
+    </con:interface>
+    <con:interface xsi:type="con:RestService" id="826c720f-3748-4551-9127-6e8bfe36863c" wadlVersion="http://wadl.dev.java.net/2009/02" name="Config Server (8888)" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <con:settings/>
+        <con:definitionCache type="TEXT" rootPart=""/>
+        <con:endpoints>
+            <con:endpoint>http://localhost:8888</con:endpoint>
+        </con:endpoints>
+        <con:resource name="Encryption" path="/encrypt" id="774b4541-eb08-4078-87d5-df4c0ca4da86">
+            <con:settings/>
+            <con:parameters/>
+            <con:method name="Encryption" id="54ff8778-aa2c-4f19-91c8-2dd4dd3fa443" method="POST">
+                <con:settings/>
+                <con:parameters/>
+                <con:request name="Encryption Request 1" id="792a25fb-f985-47a7-8107-76cc0ea5583e" mediaType="application/json" postQueryString="false">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8888</con:endpoint>
+                    <con:request/>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters/>
+                </con:request>
+            </con:method>
+        </con:resource>
+        <con:resource name="Decryption" path="/decrypt" id="38f1bb63-5704-4252-a099-0af50111dac0">
+            <con:settings/>
+            <con:parameters/>
+            <con:method name="Decryption" id="3ba43eae-64e8-4142-8196-a8895b57e8fd" method="POST">
+                <con:settings/>
+                <con:parameters/>
+                <con:request name="Decryption Request 1" id="de4eb91f-3416-47bf-bd47-38396512cc43" mediaType="application/json" postQueryString="false">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8888</con:endpoint>
+                    <con:request/>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters/>
+                </con:request>
+            </con:method>
+        </con:resource>
+    </con:interface>
+    <con:interface xsi:type="con:RestService" id="a8b5af59-11c2-4aca-9cd0-5fa7541cb642" wadlVersion="http://wadl.dev.java.net/2009/02" name="Affiliate Service (8083)" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <con:settings/>
+        <con:definitionCache type="TEXT" rootPart=""/>
+        <con:endpoints>
+            <con:endpoint>http://localhost:8083</con:endpoint>
+        </con:endpoints>
+        <con:resource name="Affiliate" path="/affiliate" id="8b36dcb0-0dc3-4bf4-8632-ece34563b821">
+            <con:settings/>
+            <con:parameters>
+                <con:parameter>
+                    <con:name>ID</con:name>
+                    <con:value/>
+                    <con:style>TEMPLATE</con:style>
+                    <con:default/>
+                    <con:description xsi:nil="true"/>
+                </con:parameter>
+            </con:parameters>
+            <con:method name="Find All Affiliate" id="89b71005-1e4a-41e8-9be9-ffc16d1de49a" method="GET">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params/>
+                    <con:element>Response</con:element>
+                </con:representation>
+                <con:representation type="FAULT">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>500</con:status>
+                    <con:params/>
+                    <con:element xmlns:user="http://localhost/user">user:Fault</con:element>
+                </con:representation>
+                <con:request name="Find All Affiliate Request 1" id="5f16bf43-a923-4731-9cc9-d257a4df0b9f" mediaType="application/json">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8083</con:endpoint>
+                    <con:request/>
+                    <con:originalUri>http://localhost/user</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters>
+                        <entry key="ID" value="" xmlns="http://eviware.com/soapui/config"/>
+                    </con:parameters>
+                    <con:parameterOrder>
+                        <con:entry>ID</con:entry>
+                    </con:parameterOrder>
+                </con:request>
+            </con:method>
+            <con:method name="Insert Affiliate" id="4b018788-1ce0-4bb6-9bff-980b6e50bdf7" method="POST">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params/>
+                    <con:element xmlns:user="http://localhost/user">user:Response</con:element>
+                </con:representation>
+                <con:representation type="REQUEST">
+                    <con:mediaType>application/json</con:mediaType>
+                    <con:params/>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType xsi:nil="true"/>
+                    <con:status>0</con:status>
+                    <con:params/>
+                    <con:element>data</con:element>
+                </con:representation>
+                <con:request name="Insert Affiliate Request 1" id="0a97b85f-8838-4ce1-bd35-7282eb6a6ccd" mediaType="application/json" postQueryString="false">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8083</con:endpoint>
+                    <con:request>{
+                        "name":"Raphael",
+                        "login":"Raphael",
+                        "password":"teste",
+                        "phone":"1122223333",
+                        "email":"raphael@eng.com",
+                        "address":"rua da rua"
+                        }
+                    </con:request>
+                    <con:originalUri>http://localhost/user</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters>
+                        <entry key="ID" value="" xmlns="http://eviware.com/soapui/config"/>
+                    </con:parameters>
+                    <con:parameterOrder>
+                        <con:entry>ID</con:entry>
+                    </con:parameterOrder>
+                </con:request>
+            </con:method>
+            <con:method name="Update Affiliate" id="50f48d7e-4306-4b21-a75b-cb3c9a675f33" method="PUT">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="REQUEST">
+                    <con:mediaType>application/json</con:mediaType>
+                    <con:params/>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params/>
+                    <con:element xmlns:user="http://localhost/user">user:Response</con:element>
+                </con:representation>
+                <con:representation type="FAULT">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>400</con:status>
+                    <con:params/>
+                    <con:element xmlns:user="http://localhost/user">user:Fault</con:element>
+                </con:representation>
+                <con:request name="Update Affiliate Request 1" id="8d88f765-0b23-4667-83ca-f16bc39ec88e" mediaType="application/json" postQueryString="false">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8083</con:endpoint>
+                    <con:request>{
+                        "id": 2,
+                        "login": "Raphael",
+                        "password": "$2a$11$HIMTN8Lt/GybfUciScYNjufJtWhvbVbpxdpHHolmbsjW88gPjBaU2",
+                        "name": "Raphael Rossi",
+                        "address": "Rua das avenidas",
+                        "email": "raphael@eng.com",
+                        "phone": "1122223333",
+                        "cityId": 1,
+                        "lastLoginDate": null,
+                        "lastLoginDateCache": null,
+                        "role": null,
+                        "area": null,
+                        "changePassword": null,
+                        "blockReason": null,
+                        "blockDescription": null,
+                        "expirationDate": null,
+                        "passwordRaw": "teste@1",
+                        "remoteLogin": null,
+                        "blockedInactivity": false,
+                        "passwordExpired": false,
+                        "externalAuthentication": false,
+                        "userPasswordHistorySet": null
+                        }
+                    </con:request>
+                    <con:originalUri>http://localhost/user</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters>
+                        <entry key="ID" value="" xmlns="http://eviware.com/soapui/config"/>
+                    </con:parameters>
+                    <con:parameterOrder>
+                        <con:entry>ID</con:entry>
+                    </con:parameterOrder>
+                </con:request>
+            </con:method>
+            <con:method name="Delete Affiliate" id="9ba46c4c-0a23-42d3-9889-d66b544dfca0" method="DELETE">
+                <con:settings/>
+                <con:parameters/>
+                <con:request name="Delete Affiliate Request 1" id="5ebd6a14-c397-4ec5-8f04-e3ea2f5093c7" mediaType="application/json" postQueryString="false">
+                    <con:settings/>
+                    <con:endpoint>http://localhost:8083</con:endpoint>
+                    <con:request/>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters>
+                        <entry key="ID" value="" xmlns="http://eviware.com/soapui/config"/>
+                    </con:parameters>
+                    <con:parameterOrder>
+                        <con:entry>ID</con:entry>
+                    </con:parameterOrder>
+                </con:request>
+            </con:method>
+            <con:method name="Find Affiliate By Id" id="981edc3f-a609-4dff-ab22-f15d9a7beba6" method="GET">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params/>
+                    <con:element>Response</con:element>
+                </con:representation>
+                <con:representation type="FAULT">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>500</con:status>
+                    <con:params/>
+                    <con:element xmlns:user="http://localhost/user">user:Fault</con:element>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType xsi:nil="true"/>
+                    <con:status>0</con:status>
+                    <con:params/>
+                    <con:element>data</con:element>
+                </con:representation>
+                <con:request name="Find Affiliate By Id Request 1" id="fd1de772-4ce1-4265-b9a4-74658ca8a5ef" mediaType="application/json">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8083</con:endpoint>
+                    <con:request/>
+                    <con:originalUri>http://localhost/user</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters>
+                        <entry key="ID" value="10" xmlns="http://eviware.com/soapui/config"/>
+                    </con:parameters>
+                    <con:parameterOrder>
+                        <con:entry>ID</con:entry>
+                    </con:parameterOrder>
+                </con:request>
+            </con:method>
+        </con:resource>
+    <con:resource name="Region Code" path="/regionCode" id="8b36dcb0-0dc3-4bf4-8632-ece34563b821">
+            <con:settings/>
+            <con:parameters>
+                <con:parameter>
+                    <con:name>ID</con:name>
+                    <con:value/>
+                    <con:style>TEMPLATE</con:style>
+                    <con:default/>
+                    <con:description xsi:nil="true"/>
+                </con:parameter>
+            </con:parameters>
+            <con:method name="Find All Region Code" id="89b71005-1e4a-41e8-9be9-ffc16d1de49a" method="GET">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params/>
+                    <con:element>Response</con:element>
+                </con:representation>
+                <con:representation type="FAULT">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>500</con:status>
+                    <con:params/>
+                    <con:element xmlns:user="http://localhost/user">user:Fault</con:element>
+                </con:representation>
+                <con:request name="Find All Region Code Request 1" id="5f16bf43-a923-4731-9cc9-d257a4df0b9f" mediaType="application/json">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8083</con:endpoint>
+                    <con:request/>
+                    <con:originalUri>http://localhost/user</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters>
+                        <entry key="ID" value="" xmlns="http://eviware.com/soapui/config"/>
+                    </con:parameters>
+                    <con:parameterOrder>
+                        <con:entry>ID</con:entry>
+                    </con:parameterOrder>
+                </con:request>
+            </con:method>
+            <con:method name="Insert Region Code" id="4b018788-1ce0-4bb6-9bff-980b6e50bdf7" method="POST">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params/>
+                    <con:element xmlns:user="http://localhost/user">user:Response</con:element>
+                </con:representation>
+                <con:representation type="REQUEST">
+                    <con:mediaType>application/json</con:mediaType>
+                    <con:params/>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType xsi:nil="true"/>
+                    <con:status>0</con:status>
+                    <con:params/>
+                    <con:element>data</con:element>
+                </con:representation>
+                <con:request name="Insert Region Code Request 1" id="0a97b85f-8838-4ce1-bd35-7282eb6a6ccd" mediaType="application/json" postQueryString="false">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8083</con:endpoint>
+                    <con:request>{
+                        "name":"Raphael",
+                        "login":"Raphael",
+                        "password":"teste",
+                        "phone":"1122223333",
+                        "email":"raphael@eng.com",
+                        "address":"rua da rua"
+                        }
+                    </con:request>
+                    <con:originalUri>http://localhost/user</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters>
+                        <entry key="ID" value="" xmlns="http://eviware.com/soapui/config"/>
+                    </con:parameters>
+                    <con:parameterOrder>
+                        <con:entry>ID</con:entry>
+                    </con:parameterOrder>
+                </con:request>
+            </con:method>
+            <con:method name="Update Region Code" id="50f48d7e-4306-4b21-a75b-cb3c9a675f33" method="PUT">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="REQUEST">
+                    <con:mediaType>application/json</con:mediaType>
+                    <con:params/>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params/>
+                    <con:element xmlns:user="http://localhost/user">user:Response</con:element>
+                </con:representation>
+                <con:representation type="FAULT">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>400</con:status>
+                    <con:params/>
+                    <con:element xmlns:user="http://localhost/user">user:Fault</con:element>
+                </con:representation>
+                <con:request name="Update Region Code Request 1" id="8d88f765-0b23-4667-83ca-f16bc39ec88e" mediaType="application/json" postQueryString="false">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8083</con:endpoint>
+                    <con:request>{
+                        "id": 2,
+                        "login": "Raphael",
+                        "password": "$2a$11$HIMTN8Lt/GybfUciScYNjufJtWhvbVbpxdpHHolmbsjW88gPjBaU2",
+                        "name": "Raphael Rossi",
+                        "address": "Rua das avenidas",
+                        "email": "raphael@eng.com",
+                        "phone": "1122223333",
+                        "cityId": 1,
+                        "lastLoginDate": null,
+                        "lastLoginDateCache": null,
+                        "role": null,
+                        "area": null,
+                        "changePassword": null,
+                        "blockReason": null,
+                        "blockDescription": null,
+                        "expirationDate": null,
+                        "passwordRaw": "teste@1",
+                        "remoteLogin": null,
+                        "blockedInactivity": false,
+                        "passwordExpired": false,
+                        "externalAuthentication": false,
+                        "userPasswordHistorySet": null
+                        }
+                    </con:request>
+                    <con:originalUri>http://localhost/user</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters>
+                        <entry key="ID" value="" xmlns="http://eviware.com/soapui/config"/>
+                    </con:parameters>
+                    <con:parameterOrder>
+                        <con:entry>ID</con:entry>
+                    </con:parameterOrder>
+                </con:request>
+            </con:method>
+            <con:method name="Delete Region Code" id="9ba46c4c-0a23-42d3-9889-d66b544dfca0" method="DELETE">
+                <con:settings/>
+                <con:parameters/>
+                <con:request name="Delete Region Code Request 1" id="5ebd6a14-c397-4ec5-8f04-e3ea2f5093c7" mediaType="application/json" postQueryString="false">
+                    <con:settings/>
+                    <con:endpoint>http://localhost:8083</con:endpoint>
+                    <con:request/>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters>
+                        <entry key="ID" value="" xmlns="http://eviware.com/soapui/config"/>
+                    </con:parameters>
+                    <con:parameterOrder>
+                        <con:entry>ID</con:entry>
+                    </con:parameterOrder>
+                </con:request>
+            </con:method>
+            <con:method name="Find Region Code By Id" id="981edc3f-a609-4dff-ab22-f15d9a7beba6" method="GET">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params/>
+                    <con:element>Response</con:element>
+                </con:representation>
+                <con:representation type="FAULT">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>500</con:status>
+                    <con:params/>
+                    <con:element xmlns:user="http://localhost/user">user:Fault</con:element>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType xsi:nil="true"/>
+                    <con:status>0</con:status>
+                    <con:params/>
+                    <con:element>data</con:element>
+                </con:representation>
+                <con:request name="Find Region Code By Id Request 1" id="fd1de772-4ce1-4265-b9a4-74658ca8a5ef" mediaType="application/json">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8083</con:endpoint>
+                    <con:request/>
+                    <con:originalUri>http://localhost/user</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters>
+                        <entry key="ID" value="10" xmlns="http://eviware.com/soapui/config"/>
+                    </con:parameters>
+                    <con:parameterOrder>
+                        <con:entry>ID</con:entry>
+                    </con:parameterOrder>
+                </con:request>
+            </con:method>
+        </con:resource><con:resource name="Amount" path="/amount" id="8b36dcb0-0dc3-4bf4-8632-ece34563b821">
+            <con:settings/>
+            <con:parameters>
+                <con:parameter>
+                    <con:name>ID</con:name>
+                    <con:value/>
+                    <con:style>TEMPLATE</con:style>
+                    <con:default/>
+                    <con:description xsi:nil="true"/>
+                </con:parameter>
+            </con:parameters>
+            <con:method name="Find All Amount" id="89b71005-1e4a-41e8-9be9-ffc16d1de49a" method="GET">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params/>
+                    <con:element>Response</con:element>
+                </con:representation>
+                <con:representation type="FAULT">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>500</con:status>
+                    <con:params/>
+                    <con:element xmlns:user="http://localhost/user">user:Fault</con:element>
+                </con:representation>
+                <con:request name="Find All Amount Request 1" id="5f16bf43-a923-4731-9cc9-d257a4df0b9f" mediaType="application/json">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8083</con:endpoint>
+                    <con:request/>
+                    <con:originalUri>http://localhost/user</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters>
+                        <entry key="ID" value="" xmlns="http://eviware.com/soapui/config"/>
+                    </con:parameters>
+                    <con:parameterOrder>
+                        <con:entry>ID</con:entry>
+                    </con:parameterOrder>
+                </con:request>
+            </con:method>
+            <con:method name="Insert Amount" id="4b018788-1ce0-4bb6-9bff-980b6e50bdf7" method="POST">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params/>
+                    <con:element xmlns:user="http://localhost/user">user:Response</con:element>
+                </con:representation>
+                <con:representation type="REQUEST">
+                    <con:mediaType>application/json</con:mediaType>
+                    <con:params/>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType xsi:nil="true"/>
+                    <con:status>0</con:status>
+                    <con:params/>
+                    <con:element>data</con:element>
+                </con:representation>
+                <con:request name="Insert Amount Request 1" id="0a97b85f-8838-4ce1-bd35-7282eb6a6ccd" mediaType="application/json" postQueryString="false">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8083</con:endpoint>
+                    <con:request>{
+                        "name":"Raphael",
+                        "login":"Raphael",
+                        "password":"teste",
+                        "phone":"1122223333",
+                        "email":"raphael@eng.com",
+                        "address":"rua da rua"
+                        }
+                    </con:request>
+                    <con:originalUri>http://localhost/user</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters>
+                        <entry key="ID" value="" xmlns="http://eviware.com/soapui/config"/>
+                    </con:parameters>
+                    <con:parameterOrder>
+                        <con:entry>ID</con:entry>
+                    </con:parameterOrder>
+                </con:request>
+            </con:method>
+            <con:method name="Update Amount" id="50f48d7e-4306-4b21-a75b-cb3c9a675f33" method="PUT">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="REQUEST">
+                    <con:mediaType>application/json</con:mediaType>
+                    <con:params/>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params/>
+                    <con:element xmlns:user="http://localhost/user">user:Response</con:element>
+                </con:representation>
+                <con:representation type="FAULT">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>400</con:status>
+                    <con:params/>
+                    <con:element xmlns:user="http://localhost/user">user:Fault</con:element>
+                </con:representation>
+                <con:request name="Update Amount Request 1" id="8d88f765-0b23-4667-83ca-f16bc39ec88e" mediaType="application/json" postQueryString="false">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8083</con:endpoint>
+                    <con:request>{
+                        "id": 2,
+                        "login": "Raphael",
+                        "password": "$2a$11$HIMTN8Lt/GybfUciScYNjufJtWhvbVbpxdpHHolmbsjW88gPjBaU2",
+                        "name": "Raphael Rossi",
+                        "address": "Rua das avenidas",
+                        "email": "raphael@eng.com",
+                        "phone": "1122223333",
+                        "cityId": 1,
+                        "lastLoginDate": null,
+                        "lastLoginDateCache": null,
+                        "role": null,
+                        "area": null,
+                        "changePassword": null,
+                        "blockReason": null,
+                        "blockDescription": null,
+                        "expirationDate": null,
+                        "passwordRaw": "teste@1",
+                        "remoteLogin": null,
+                        "blockedInactivity": false,
+                        "passwordExpired": false,
+                        "externalAuthentication": false,
+                        "userPasswordHistorySet": null
+                        }
+                    </con:request>
+                    <con:originalUri>http://localhost/user</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters>
+                        <entry key="ID" value="" xmlns="http://eviware.com/soapui/config"/>
+                    </con:parameters>
+                    <con:parameterOrder>
+                        <con:entry>ID</con:entry>
+                    </con:parameterOrder>
+                </con:request>
+            </con:method>
+            <con:method name="Delete Amount" id="9ba46c4c-0a23-42d3-9889-d66b544dfca0" method="DELETE">
+                <con:settings/>
+                <con:parameters/>
+                <con:request name="Delete Amount Request 1" id="5ebd6a14-c397-4ec5-8f04-e3ea2f5093c7" mediaType="application/json" postQueryString="false">
+                    <con:settings/>
+                    <con:endpoint>http://localhost:8083</con:endpoint>
+                    <con:request/>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters>
+                        <entry key="ID" value="" xmlns="http://eviware.com/soapui/config"/>
+                    </con:parameters>
+                    <con:parameterOrder>
+                        <con:entry>ID</con:entry>
+                    </con:parameterOrder>
+                </con:request>
+            </con:method>
+            <con:method name="Find Amount By Id" id="981edc3f-a609-4dff-ab22-f15d9a7beba6" method="GET">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params/>
+                    <con:element>Response</con:element>
+                </con:representation>
+                <con:representation type="FAULT">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>500</con:status>
+                    <con:params/>
+                    <con:element xmlns:user="http://localhost/user">user:Fault</con:element>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType xsi:nil="true"/>
+                    <con:status>0</con:status>
+                    <con:params/>
+                    <con:element>data</con:element>
+                </con:representation>
+                <con:request name="Find Amount By Id Request 1" id="fd1de772-4ce1-4265-b9a4-74658ca8a5ef" mediaType="application/json">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8083</con:endpoint>
+                    <con:request/>
+                    <con:originalUri>http://localhost/user</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters>
+                        <entry key="ID" value="10" xmlns="http://eviware.com/soapui/config"/>
+                    </con:parameters>
+                    <con:parameterOrder>
+                        <con:entry>ID</con:entry>
+                    </con:parameterOrder>
+                </con:request>
+            </con:method>
+        </con:resource><con:resource name="Amount Region" path="/amountRegion" id="8b36dcb0-0dc3-4bf4-8632-ece34563b821">
+            <con:settings/>
+            <con:parameters>
+                <con:parameter>
+                    <con:name>ID</con:name>
+                    <con:value/>
+                    <con:style>TEMPLATE</con:style>
+                    <con:default/>
+                    <con:description xsi:nil="true"/>
+                </con:parameter>
+            </con:parameters>
+            <con:method name="Find All Amount Region" id="89b71005-1e4a-41e8-9be9-ffc16d1de49a" method="GET">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params/>
+                    <con:element>Response</con:element>
+                </con:representation>
+                <con:representation type="FAULT">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>500</con:status>
+                    <con:params/>
+                    <con:element xmlns:user="http://localhost/user">user:Fault</con:element>
+                </con:representation>
+                <con:request name="Find All Amount Region Request 1" id="5f16bf43-a923-4731-9cc9-d257a4df0b9f" mediaType="application/json">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8083</con:endpoint>
+                    <con:request/>
+                    <con:originalUri>http://localhost/user</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters>
+                        <entry key="ID" value="" xmlns="http://eviware.com/soapui/config"/>
+                    </con:parameters>
+                    <con:parameterOrder>
+                        <con:entry>ID</con:entry>
+                    </con:parameterOrder>
+                </con:request>
+            </con:method>
+            <con:method name="Insert Amount Region" id="4b018788-1ce0-4bb6-9bff-980b6e50bdf7" method="POST">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params/>
+                    <con:element xmlns:user="http://localhost/user">user:Response</con:element>
+                </con:representation>
+                <con:representation type="REQUEST">
+                    <con:mediaType>application/json</con:mediaType>
+                    <con:params/>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType xsi:nil="true"/>
+                    <con:status>0</con:status>
+                    <con:params/>
+                    <con:element>data</con:element>
+                </con:representation>
+                <con:request name="Insert Amount Region Request 1" id="0a97b85f-8838-4ce1-bd35-7282eb6a6ccd" mediaType="application/json" postQueryString="false">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8083</con:endpoint>
+                    <con:request>{
+                        "name":"Raphael",
+                        "login":"Raphael",
+                        "password":"teste",
+                        "phone":"1122223333",
+                        "email":"raphael@eng.com",
+                        "address":"rua da rua"
+                        }
+                    </con:request>
+                    <con:originalUri>http://localhost/user</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters>
+                        <entry key="ID" value="" xmlns="http://eviware.com/soapui/config"/>
+                    </con:parameters>
+                    <con:parameterOrder>
+                        <con:entry>ID</con:entry>
+                    </con:parameterOrder>
+                </con:request>
+            </con:method>
+            <con:method name="Update Amount Region" id="50f48d7e-4306-4b21-a75b-cb3c9a675f33" method="PUT">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="REQUEST">
+                    <con:mediaType>application/json</con:mediaType>
+                    <con:params/>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params/>
+                    <con:element xmlns:user="http://localhost/user">user:Response</con:element>
+                </con:representation>
+                <con:representation type="FAULT">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>400</con:status>
+                    <con:params/>
+                    <con:element xmlns:user="http://localhost/user">user:Fault</con:element>
+                </con:representation>
+                <con:request name="Update Amount Region Request 1" id="8d88f765-0b23-4667-83ca-f16bc39ec88e" mediaType="application/json" postQueryString="false">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8083</con:endpoint>
+                    <con:request>{
+                        "id": 2,
+                        "login": "Raphael",
+                        "password": "$2a$11$HIMTN8Lt/GybfUciScYNjufJtWhvbVbpxdpHHolmbsjW88gPjBaU2",
+                        "name": "Raphael Rossi",
+                        "address": "Rua das avenidas",
+                        "email": "raphael@eng.com",
+                        "phone": "1122223333",
+                        "cityId": 1,
+                        "lastLoginDate": null,
+                        "lastLoginDateCache": null,
+                        "role": null,
+                        "area": null,
+                        "changePassword": null,
+                        "blockReason": null,
+                        "blockDescription": null,
+                        "expirationDate": null,
+                        "passwordRaw": "teste@1",
+                        "remoteLogin": null,
+                        "blockedInactivity": false,
+                        "passwordExpired": false,
+                        "externalAuthentication": false,
+                        "userPasswordHistorySet": null
+                        }
+                    </con:request>
+                    <con:originalUri>http://localhost/user</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters>
+                        <entry key="ID" value="" xmlns="http://eviware.com/soapui/config"/>
+                    </con:parameters>
+                    <con:parameterOrder>
+                        <con:entry>ID</con:entry>
+                    </con:parameterOrder>
+                </con:request>
+            </con:method>
+            <con:method name="Delete Amount Region" id="9ba46c4c-0a23-42d3-9889-d66b544dfca0" method="DELETE">
+                <con:settings/>
+                <con:parameters/>
+                <con:request name="Delete Amount Region Request 1" id="5ebd6a14-c397-4ec5-8f04-e3ea2f5093c7" mediaType="application/json" postQueryString="false">
+                    <con:settings/>
+                    <con:endpoint>http://localhost:8083</con:endpoint>
+                    <con:request/>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters>
+                        <entry key="ID" value="" xmlns="http://eviware.com/soapui/config"/>
+                    </con:parameters>
+                    <con:parameterOrder>
+                        <con:entry>ID</con:entry>
+                    </con:parameterOrder>
+                </con:request>
+            </con:method>
+            <con:method name="Find Amount Region By Id" id="981edc3f-a609-4dff-ab22-f15d9a7beba6" method="GET">
+                <con:settings/>
+                <con:parameters/>
+                <con:representation type="RESPONSE">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>200</con:status>
+                    <con:params/>
+                    <con:element>Response</con:element>
+                </con:representation>
+                <con:representation type="FAULT">
+                    <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+                    <con:status>500</con:status>
+                    <con:params/>
+                    <con:element xmlns:user="http://localhost/user">user:Fault</con:element>
+                </con:representation>
+                <con:representation type="RESPONSE">
+                    <con:mediaType xsi:nil="true"/>
+                    <con:status>0</con:status>
+                    <con:params/>
+                    <con:element>data</con:element>
+                </con:representation>
+                <con:request name="Find Amount Region By Id Request 1" id="fd1de772-4ce1-4265-b9a4-74658ca8a5ef" mediaType="application/json">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8083</con:endpoint>
+                    <con:request/>
+                    <con:originalUri>http://localhost/user</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters>
+                        <entry key="ID" value="10" xmlns="http://eviware.com/soapui/config"/>
+                    </con:parameters>
+                    <con:parameterOrder>
+                        <con:entry>ID</con:entry>
+                    </con:parameterOrder>
+                </con:request>
+            </con:method>
+        </con:resource></con:interface>
+    <con:properties/>
+    <con:wssContainer/>
+    <con:oAuth2ProfileContainer/>
+    <con:oAuth1ProfileContainer/>
+    <con:sensitiveInformation/>
+</con:soapui-project>
